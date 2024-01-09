@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root{
+    --background-color: #fff,
+    --yellow-background-color: #fffc00;
+    --yellow-text-color: #fffc00;
+    --black-background-color: #000;
+    --body-background-color: #ccc
+}
+
+body{
+    width: 100%;
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    background-color: var(--body-background-color);
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    height: 812px;
+    width: 375px;
+    /* background-color: var(--background-color); */
+    background: #fff;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 2px solid #fff; */
+}
+.main-container .header{
+
+    width: 100%;
+    background-color: var(--yellow-text-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    height: 88px;
+}
+.icon{
+    margin-right: 0.6rem;
+}
+.login-form{
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login-form h2{
+    margin: 2rem auto;
+    font-size: 24px;
+    font-weight: 400;
+}
+button{
+    /* padding: 0.4rem 0.8rem; */
+    width: 228px;
+    height: 48px;
+    border-radius: 50px;
+    border: none;
+}
+.google{
+    background-color: #000;
+    margin-bottom: 1rem;
+}
+.google a{
+    text-decoration: none;
+    color: var(--yellow-text-color);
+    font-size: 18px;
+    font-weight: 400;
+}
+span{
+    font-size: 10px;
+    font-weight: 400;
+    margin: 1rem auto;
+}
+.grey, .login-btn{
+    color: #bbb;
+    font-size: 18px;
+    font-weight: 400;
+}
+form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+input{
+margin: 0.5rem auto;
+width: 80%;
+height: 2.4rem;
+border: none;
+outline: none;
+border-bottom: 1px solid #000;
+}
+#password-reset{
+    display: inline-block;
+    position: absolute;
+     right: 1.8rem;
+     top: 6rem;
+     /* bottom: 0.5rem; */
+}
+#password-reset a{
+    text-decoration: none;
+    color: #0D46D9;
+    font-size: 10px;
+    font-weight: 400;
+}
+.login-btn{
+    margin: 2.5rem auto;
+    color: #000;
+    background-color: var(--yellow-text-color);
+}
+#signup{
+    color: #626262;
+}
+#signup a{
+    color: #000;
+    text-decoration: none;
+}
