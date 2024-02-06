@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local storage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #eee;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #121757;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+            padding-top: 5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+        }
+
+        form input {
+            height: 2.4rem;
+            background: transparent;
+            padding: 0 0.5rem;
+            border-radius: 10px;
+            border: 1px solid salmon;
+            outline: none;
+        }
+
+        form textarea {
+            height: 5rem;
+            padding: 0.4rem 0.5rem;
+            border-radius: 10px;
+            border: 1px solid salmon;
+            background: transparent;
+            outline: none;
+        }
+
+        form input[type="submit"] {
+            background: slateblue;
+            border: none;
+        }
+
+        .main-container {
+            display: grid;
+            /* background-color: #999; */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            padding: 10px;
+            grid-gap: 1rem;
+
+        }
+
+        .container {
+            background: #cccc;
+            color: #1e2168;
+            padding: 10px;
+            display: flex;
+            flex-flow: column wrap;
+            gap: 1rem;
+            border-radius: 10px;
+            justify-content: space-evenly;
+            box-shadow: 2px 1px 2px #000c24, 2px 1px 3px #000c24;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container p,
+
+        h4 {
+            color: #121757;
+            margin-top: 1rem;
+        }
+
+        .container span {
+            display: block;
+            text-align: center;
+            color: rgb(161, 75, 75);
+        }
+
+        .container button {
+            width: 50%;
+            padding: 10px 0;
+            border: none;
+            background-color: #999;
+            border-radius: 10px;
+        }
+
+        .container button a {
+            color: #121757;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- <div class="container">
+            <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/06/person-at-computer.jpeg.jpg"
+                alt="Commenter">
+            <h4>John Doe</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, vel tenetur! Exercitationem
+                voluptates eius tenetur rem mollitia officiis atque quia, ipsum, ducimus delectus eum laboriosam quaerat
+                animi. Quas, quis labore?</p>
+            <span>johndoe@gmail.com</span>
+            <button><a href="#">Read More</a></button>
+        </div> -->
+    </div>
+    <form action="#">
+        <input id="name" type="text" placeholder="Your name" name="name" required>
+        <input id="email" type="email" placeholder="Your email" name="email" required>
+        <textarea id="message" type="text" placeholder="Your Message" name="message" required></textarea>
+        <input id="file" type="file">
+        <input type="submit" value="create comment">
+    </form>
+
+    <script>
+        let comments = JSON.parse(localStorage.getItem('comments')) || []
+        const mainContainer = document.querySelector('.main-container')
+        const name = document.querySelector('#name')
+        const email = document.querySelector('#email')
+        const message = document.querySelector('#message')
+        const imageFile = document.querySelector('#file')
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            let comment = { name: name.value, email: email.value, message: message.value, imageSrc: URL.createObjectURL(imageFile.files[0]) }
+            comments.push(comment)
+            localStorage.setItem('comments', JSON.stringify(comments))
+            name.value = ''
+            email.value = ''
+            message.value = ''
+
+
+            // comments.forEach(comment => {
+            //     const commentContainer = document.createElement('div')
+            //     commentContainer.classList.add('container')
+            //     commentContainer.innerHTML = `
+            // <img src="${comment.imageSrc}"
+            //     alt="Commenter">
+            // <h4>${comment.name}</h4>
+            // <p>${comment.message}</p>
+            // <span>${comment.email}</span>
+            // <button><a href="#">Read More</a></button>`
+            //     mainContainer.appendChild(commentContainer)
+            // });
+
+        })
+        // retrieving comments from the local storage
+        comments.forEach(comment => {
+            const commentContainer = document.createElement('div')
+            commentContainer.classList.add('container')
+            commentContainer.innerHTML = `
+            <img src="${comment.imageSrc}"
+                alt="Commenter">
+            <h4>${comment.name}</h4>
+            <p>${comment.message}</p>
+            <span>${comment.email}</span>
+            <button><a href="#">Read More</a></button>`
+            mainContainer.appendChild(commentContainer)
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
