@@ -3,6 +3,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  color: #eee;
+  text-decoration: none;
 }
 :root {
   --nav-item-primary-color: #eee;
@@ -17,31 +19,97 @@ body {
   display: grid;
   min-height: 100vh;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  padding-top: 10px;
-}
-nav ul li {
-  position: relative;
-  font-size: 1.2rem;
-}
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #d11559;
-  bottom: -6px;
-  left: 0;
-  transition: 0.5s ease;
-}
-nav ul li a {
-  color: var(--nav-item-primary-color);
-  text-decoration: none;
-}
-nav ul li a:hover::after {
+.main-home-container {
+  margin-top: 15%;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+.main-home-container .social-icons {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  color: #cfa511;
+  flex: 1;
+  justify-self: flex-start;
+  margin-left: 1rem;
+}
+.main-home-container .social-icons a i {
+  color: #cfa511;
+  font-size: 1.5rem;
+}
+.main-home-container .description {
+  margin-left: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 2.5rem;
+  flex: 2;
+}
+.main-home-container .description h4 {
+  color: #f44336;
+  font-size: 1.5rem;
+  line-height: 150%;
+}
+.main-home-container .description div h2 {
+  color: #151733;
+  -webkit-text-stroke: 1px #fff;
+  line-height: 150%;
+}
+.main-home-container .description h3 {
+  font-weight: 600;
+}
+.main-home-container .photo {
+  flex: 2;
+}
+.main-home-container .photo img {
+  width: 100%;
+  height: auto;
+}
+/* About section */
+
+.about-container {
+  display: flex;
+  width: 100%;
+  margin-top: 5rem;
+  justify-content: space-around;
+  background-color: rgb(55, 87, 87);
+  position: relative;
+}
+.about-container .title {
+  position: absolute;
+  top: 1rem;
+  margin-bottom: 1rem;
+  transform: translateX(-50%);
+}
+.about-container .description {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgb(48, 51, 50);
+  justify-content: space-around;
+}
+.about-container .description div p {
+  line-height: 150%;
+  margin-bottom: 1rem;
+}
+@media only screen and (width < 720px) {
+  .main-home-container {
+    flex-flow: column;
+  }
+  .main-home-container .social-icons {
+    flex-direction: row;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-home-container .description {
+    order: 2;
+    width: 100%;
+    align-items: center;
+    margin: 2rem 0;
+  }
 }

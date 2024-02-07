@@ -6,19 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My portfolio website</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="navbar_styles.css">
+    <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <nav>
+        <i class="fa-solid fa-moon toggle-bg"></i>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="blog.html">Blogs</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">portfolio</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
         </ul>
+        <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
+    <!-- Main Home view -->
+    <div class="main-home-container">
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="description">
+            <h4>Hi, I am</h4>
+            <div>
+                <h2>Jean de Dieu <br>IRADUKUNDA</h2>
+            </div>
+            <h3>Full Stack Developer</h4>
+                <p>A passionate software developer with a half decade of experience</p>
+        </div>
+        <div class="photo">
+            <img src="./images/mine/image1.png" alt="Jadooo">
+        </div>
+    </div>
+    <!-- About section -->
+    <div class="about-container" id="about">
+        <div class="title">
+            <h2>ABOUT ME</h2>
+        </div>
+
+        <div class="photo">
+            <img src="./images/mine/image2.png" alt="Jean">
+        </div>
+        <div class="description">
+            <div>
+                <p>Alorem ipsum dsta this is my about section some text to be here this and that are both those and no
+                    need to change them cause they are some what this and that try and see what you know this about page
+                    is for designing UI so, implementation next</p>
+                <p>Alorem ipsum dsta this is my about section some text to be here this and that are both those and no
+                    need to change them cause they are some what this and that try and see what you know this about page
+                    is for designing UI so, implementation next</p>
+                <p>Alorem ipsum dsta this is my about section some text to be here this and that are both those and no
+                    need to change them cause they are some what this and that try and see what you know this about page
+                    is for designing UI so, implementation next</p>
+            </div>
+            <button><a href="#" download="">My resume <i class="fa-solid fa-cloud-arrow-down"></i></a></button>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+
 </body>
 
 </html>
