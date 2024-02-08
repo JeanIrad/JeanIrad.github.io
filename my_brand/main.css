@@ -219,6 +219,38 @@ button {
 .slider div:first-child {
   background: #cfa511;
 }
+/* blogs */
+.blog-title {
+  text-align: center;
+  margin-top: 2rem;
+  color: #f44336;
+}
+.blogs {
+  margin-top: 10%;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.blogs .blog__container {
+  padding: 0.5rem;
+}
+.blogs .blog__container a {
+  color: #f44336;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+}
+.blogs .blog__container .image {
+  padding: 0 0.4rem;
+}
+.blogs .blog__container .image img {
+  width: 100%;
+  height: 50%;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
 @media only screen and (width < 720px) {
   .main-home-container {
     flex-flow: column;
