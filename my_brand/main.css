@@ -118,10 +118,107 @@ body {
   font-size: 1.3rem;
 }
 /* skills */
-meter {
-  -webkit-appearance: media-slider;
+.skills-title {
+  text-align: center;
+  margin-top: 4rem;
 }
-
+.skills-title h2:nth-child(2) {
+  color: #f44336;
+}
+.skills {
+  display: flex;
+  width: 100%;
+  margin-top: 5%;
+  padding: 0 0.5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+.skills div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.skills div h2 {
+  margin-bottom: 2rem;
+}
+.skills div div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* porfolio */
+button {
+  padding: 0.6rem 1.8rem;
+  border: none;
+  background: #cfa511;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.portfolio {
+  display: flex;
+  margin-top: 10%;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+.portfolio .portfolio__title {
+  text-align: center;
+}
+.portfolio__title h4 {
+  margin-top: 1rem;
+  color: #f44336;
+}
+.portfolio .image__text__slider__container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.portfolio .image__text__container {
+  display: flex;
+  gap: 1rem;
+  /* flex-wrap: wrap; */
+  width: 100%;
+}
+.portfolio .image__text__container .image__container {
+  flex: 1;
+}
+.portfolio .image__text__container .text__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  flex: 1;
+}
+.portfolio .image__text__container .text__container h2 {
+  color: #f44336;
+}
+.portfolio .image__text__container .text__container button {
+  margin-top: 4rem;
+}
+.portfolio .image__text__container .image__container img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+.slider {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+.slider div {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #999;
+}
+.slider div:first-child {
+  background: #cfa511;
+}
 @media only screen and (width < 720px) {
   .main-home-container {
     flex-flow: column;
@@ -150,5 +247,14 @@ meter {
   .about-container .description button {
     padding: 1rem 0;
     width: 50%;
+  }
+  .skills {
+    flex-direction: column;
+  }
+  .skills > div {
+    width: 95%;
+  }
+  .portfolio .image__text__container {
+    flex-direction: column;
   }
 }

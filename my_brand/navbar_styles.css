@@ -58,10 +58,7 @@ nav ul li a:hover::after {
 
 @media only screen and (width < 720px) {
   #bars {
-    display: block;
-  }
-  .fa-bars {
-    display: block;
+    display: inline-block;
     font-size: 30px;
     font-size: 2.5rem;
     font-size: 1.5rem;
@@ -70,22 +67,22 @@ nav ul li a:hover::after {
     right: 1rem;
     top: 1rem;
   }
+
   .toggle-bg {
     font-size: 1.5rem;
   }
-
+  .close {
+    right: 0;
+  }
   nav ul {
     flex-direction: column;
     height: 100vh;
-    width: 100%;
+    width: 95%;
     justify-content: space-evenly;
     position: absolute;
     right: -100%;
     transition: right 0.8s ease-in-out;
     z-index: 100;
-  }
-  .close {
-    right: 0;
   }
 }
 @media screen and (1200px > width > 721px) {
@@ -93,7 +90,7 @@ nav ul li a:hover::after {
     justify-content: space-between;
   }
   nav ul {
-    margin-left: 4.5rem;
+    /* margin-left: 4.5rem; */
     margin-top: 1rem;
   }
 }
