@@ -14,7 +14,11 @@ body {
   min-height: 100vh;
   background: #151733;
 }
-
+/* nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+} */
 .login__container {
   margin: 4rem auto;
   margin-top: 20%;
@@ -103,7 +107,86 @@ form button {
   box-shadow: 0 1px 3px #000c24;
   padding: 1rem;
 }
+/* single blog styles */
 
+.blog__container {
+  margin: 5rem auto;
+  display: flex;
+  margin-top: 15%;
+  flex-direction: column;
+  max-width: 90%;
+  padding: 0.5rem 0.5rem;
+  box-shadow: 1px 1px 1px #000c24;
+  gap: 1.5rem;
+}
+.blog__container img {
+  width: 100%;
+  height: auto;
+}
+.blog__container .blog__content p {
+  line-height: 150%;
+  margin-bottom: 0.5rem;
+}
+.comment__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.comment__form {
+  margin: 4rem 0;
+  min-width: 75%;
+}
+.comment__form form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+textarea {
+  outline: none;
+  height: 4rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px #eee solid;
+}
+.commenters {
+  display: flex;
+  flex-direction: column;
+}
+.commenter__name__photo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 0.5rem;
+}
+.commenter__name__photo img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.commenters .comment {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+  margin-top: 1rem;
+}
+.commenters .comment p {
+  margin-bottom: 0.5rem;
+  line-height: 150%;
+  margin-left: 2rem;
+}
+.icons {
+  margin-left: 2rem;
+}
+.commenters .comment .icons span,
+.icons span i {
+  color: #d11559;
+  margin-right: 0.5rem;
+}
+#time__stamp {
+  align-self: flex-end;
+  color: #cfa511;
+}
 @media only screen and (width < 720px) {
   .login__container {
     flex-direction: column;

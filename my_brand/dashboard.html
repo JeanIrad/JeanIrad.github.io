@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="side__bar">
+        <div class="close__icon">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="nav__items">
+            <div class="nav__item active">
+                <i class="fa-solid fa-house"></i><span>Dashboard</span>
+            </div>
+            <div class="nav__item">
+                <i class="fa-solid fa-plus"></i><span>Blogs</span>
+            </div>
+            <div class="nav__item active">
+                <i class="fa-solid fa-user-plus"></i><span>Users</span>
+            </div>
+            <div class="nav__item">
+                <i class="fa-solid fa-briefcase"></i><span>Portfolio</span>
+            </div>
+        </div>
+        <div class="control__icons">
+            <div class="icon__container">
+                <i class="fa-solid fa-gear"></i> <span>Settings</span>
+            </div>
+            <div class="icon__container">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span>
+            </div>
+        </div>
+    </div>
+    <div class="main__container">
+        <div class="top__container">
+            <div class="dashboard__title">
+                <h2>Dashboard</h2>
+                <p>welcome Smith Paul</p>
+            </div>
+            <form action="">
+                <input type="search">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="stats">
+            <h2>Stats</h2>
+            <div class="stats__container">
+                <div>
+                    <h3>45</h3>
+                    <span>Users</span>
+                    <span role="button"><a href="#">More...</a></span>
+                </div>
+                <div>
+                    <h3>35</h3>
+                    <span>blogs</span>
+                    <span role="button"><a href="#">More...</a></span>
+                </div>
+                <div>
+                    <h3>99+</h3>
+                    <span>Portfolio</span>
+                    <span role="button"><a href="#">More...</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="blogs__container">
+            <h2>Blogs</h2>
+            <div class="blogs">
+                <div class="blog">
+                    <span>01</span> <span>blog Name</span> <span role="button"><i
+                            class="fa-solid fa-pen"></i></span><span role="button"><i
+                            class="fa-solid fa-trash"></i></span>
+                </div>
+                <div class="blog">
+                    <span>02</span> <span>blog Name</span> <span role="button"><i
+                            class="fa-solid fa-pen"></i></span><span role="button"><i
+                            class="fa-solid fa-trash"></i></span>
+                </div>
+                <div class="blog">
+                    <span>03</span> <span>blog Name</span> <span role="button"><i
+                            class="fa-solid fa-pen"></i></span><span role="button"><i
+                            class="fa-solid fa-trash"></i></span>
+                </div>
+                <div class="blog">
+                    <span>04</span> <span>blog Name</span> <span role="button"><i
+                            class="fa-solid fa-pen"></i></span><span role="button"><i
+                            class="fa-solid fa-trash"></i></span>
+                </div>
+                <div class="blog">
+                    <span>05</span> <span>blog Name</span> <span role="button"><i
+                            class="fa-solid fa-pen"></i></span><span role="button"><i
+                            class="fa-solid fa-trash"></i></span>
+                </div>
+                <div class="blog">
+                    <span>06</span> <span>blog Name</span> <span role="button"><i
+                            class="fa-solid fa-pen"></i></span><span role="button"><i
+                            class="fa-solid fa-trash"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const addBlog = document.querySelector('.fa-plus')
+        const updateBlog = document.querySelectorAll('.fa-pen')
+        const logoutBtn = document.querySelectorAll('.fa-arrow-right-from-bracket')
+        addBlog.onclick = () => location.href = 'create_blog.html'
+        updateBlog.forEach(pen => onclick = () => location.href = 'create_blog.html#update')
+        logoutBtn.onclick = () => location.href = 'index.html'
+
+    </script>
+</body>
+
+</html>

@@ -5,11 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="login__styles.css">
-    <!-- <link rel="stylesheet" href="navbar_styles.css"> -->
+    <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/navbar_styles.css">
+    <link rel="stylesheet" href="./css/login__styles.css">
 </head>
 
 <body>
+    <nav>
+        <i class="fa-solid fa-moon toggle-bg"></i>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
+        </ul>
+        <i class="fa-solid fa-bars" id="bars"></i>
+    </nav>
     <div class="login__container">
         <div class="welcome">
             <h2>Welcome back!</h2>
@@ -34,6 +48,7 @@
             <button type="submit">Sign Up</button>
         </form>
     </div>
+    <script src="./js/navbar.js"></script>
 </body>
 
 </html>

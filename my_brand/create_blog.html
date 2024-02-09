@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create & Update Blog</title>
+    <link rel="stylesheet" href="./css/navbar_styles.css">
+    <link rel="stylesheet" href="./css/login__styles.css">
+    <link rel="stylesheet" href="./css/add_update_blog.css">
+</head>
+
+<body>
+    <nav>
+        <i class="fa-solid fa-moon toggle-bg"></i>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
+        </ul>
+        <i class="fa-solid fa-bars" id="bars"></i>
+    </nav>
+    <!-- create and update -->
+    <div class="create__blog__container" id="create">
+        <h2>Create a Blog</h2>
+        <form action="">
+            <input type="text" placeholder="Blog Title">
+            <textarea name="content" id="content" placeholder="Content"></textarea>
+            <input type="file">
+            <button type="submit">create A blog</button>
+        </form>
+    </div>
+    <hr>
+    <div class="update__blog__container" id="update">
+        <h2>Update a Blog</h2>
+        <form action="">
+            <input type="text" placeholder="Blog Title">
+            <textarea name="content" id="content" placeholder="Content"></textarea>
+            <input type="file">
+            <button type="submit">create A blog</button>
+        </form>
+    </div>
+    <script>
+        const editor = new FroalaEditor('content')
+    </script>
+
+</body>
+
+</html>
