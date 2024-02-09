@@ -85,12 +85,11 @@ nav ul li a:hover::after {
     z-index: 100;
   }
 }
-@media screen and (1200px > width > 721px) {
+/* @media screen and (1200px > width > 721px) {
   nav {
     justify-content: space-between;
   }
   nav ul {
-    /* margin-left: 4.5rem; */
     margin-top: 1rem;
   }
-}
+} */

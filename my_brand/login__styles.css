@@ -1,0 +1,125 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #eee;
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: #151733;
+}
+
+.login__container {
+  margin: 4rem auto;
+  margin-top: 20%;
+  display: flex;
+  padding: 1rem 0.5rem;
+  width: 80%;
+}
+.login__container .welcome {
+  width: 50%;
+  background: linear-gradient(to bottom, #d11559, #5c15d1, #154ad1);
+  border-radius: 0.5rem;
+  position: relative;
+}
+.login__container .welcome h2 {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  color: #eee;
+  -webkit-text-stroke: 1px #151733;
+}
+.login__container form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 1rem;
+}
+form input {
+  height: 2.5rem;
+  border: none;
+  border-bottom: 2px solid #eee;
+  background: transparent;
+  outline: none;
+}
+form input::placeholder {
+  transition: 0.5s ease;
+}
+form input:focus::placeholder {
+  transform: translateY(-1rem);
+}
+.login__container form div {
+  display: flex;
+  flex-direction: column;
+}
+.login__container form div span {
+  align-self: flex-end;
+}
+form button {
+  margin-top: 2rem;
+  width: 50%;
+  padding: 0.5rem 0;
+  background: #cfa511;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 600;
+  cursor: pointer;
+}
+#signup__link {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+#signup__text {
+  text-align: center;
+}
+/* sign up */
+
+.signup__container {
+  margin: 2rem auto;
+  margin-top: 30%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.signup__container h2 {
+  color: #d11559;
+  text-shadow: 1px 2px 0px #cfa511;
+}
+.signup__container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 60%;
+  box-shadow: 0 1px 3px #000c24;
+  padding: 1rem;
+}
+
+@media only screen and (width < 720px) {
+  .login__container {
+    flex-direction: column;
+    gap: 6rem;
+    justify-content: space-around;
+  }
+  .login__container .welcome {
+    width: 100%;
+  }
+  .login__container .welcome h2 {
+    transform: rotate(0deg);
+  }
+  .login__container form {
+    width: 100%;
+  }
+  .signup__container form {
+    min-width: 90%;
+  }
+}
