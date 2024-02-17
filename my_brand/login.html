@@ -50,7 +50,10 @@
     </div>
     <script src="./js/navbar.js"></script>
     <script>
-        document.getElementById('loginForm').onsubmit = () => window.location.href = 'dashboard.html'
+        document.getElementById('loginForm').onsubmit = (ev) => {
+            ev.preventDefault()
+            window.location.href = 'dashboard.html'
+        }
     </script>
 </body>
 
