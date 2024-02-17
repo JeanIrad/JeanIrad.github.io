@@ -28,7 +28,7 @@
         <div class="welcome">
             <h2>Welcome back!</h2>
         </div>
-        <form action="">
+        <form action="" id="loginForm">
             <input type="text" placeholder="Your email">
             <div>
                 <input type="password" placeholder="Your password">
@@ -49,6 +49,9 @@
         </form>
     </div>
     <script src="./js/navbar.js"></script>
+    <script>
+        document.getElementById('loginForm').onsubmit = () => window.location.href = 'dashboard.html'
+    </script>
 </body>
 
 </html>
