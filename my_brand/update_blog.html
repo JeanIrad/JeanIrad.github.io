@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Blog</title>
+    <title>Update Blog</title>
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/navbar_styles.css">
     <link rel="stylesheet" href="./css/login__styles.css">
     <link rel="stylesheet" href="./css/add_update_blog.css">
+    <link rel="stylesheet" href="./css/update_blog.css">
 </head>
 
 <body>
@@ -25,19 +26,18 @@
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
-    <!-- create and update -->
-    <div class="create__blog__container" id="create">
-        <h2>Create a Blog</h2>
-        <form action="" id="createBlogForm">
+
+    <div class="update__blog__container" id="update">
+        <h2>Update a Blog</h2>
+        <form action="" id="updateBlogForm">
             <input type="text" placeholder="Blog Title" id="blogTitle">
             <textarea name="content" id="blogContent" placeholder="Content"></textarea>
             <input type="file" id="blogImage">
-            <button type="submit">create A blog</button>
+            <button type="submit">Update A blog</button>
         </form>
     </div>
 
-
-    <script src="./js/localStorage.js"></script>
+    <script src="./js/handleUpdate.js"></script>
     <script src="./js/navbar.js"></script>
 
 </body>

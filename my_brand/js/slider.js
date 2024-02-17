@@ -4,7 +4,11 @@ const sliderDivs = document.querySelectorAll(".slider div");
 let index = 0;
 const nextVal = [
   {
-    title: "Game development",
+    title: "Web development",
+    image: "./images/mine/portfolio/image1.png",
+  },
+  {
+    title: "Game Development",
     image: "./images/mine/portfolio/image2.png",
   },
   {
@@ -17,7 +21,7 @@ setInterval(() => {
   portfolioImage.src = nextVal[index].image;
   portfolioTitle.textContent = nextVal[index].title;
   sliderDivs[index].style.background = "#cfa511";
-  if (index > 2) {
+  if (index >= 2) {
     index = 0;
   }
 }, 3000);
