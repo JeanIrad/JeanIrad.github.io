@@ -12,7 +12,8 @@ let { title, content } = blogs.find(({ id }) => id === updateId);
 const updateBlog = (title, content, image) => {
   const indexOfBlog = blogs.findIndex((blog) => blog.id === updateId);
   if (indexOfBlog !== -1) {
-    blogs[indexOfBlog] = { title, content, image };
+    console.log(blogs[indexOfBlog].id);
+    blogs[indexOfBlog] = { id: Date.now(), title, content, image };
   }
 };
 blogTitle.value = title;

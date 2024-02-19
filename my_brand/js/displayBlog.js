@@ -1,10 +1,12 @@
 let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 document.addEventListener("DOMContentLoaded", () => {
-  // Displaying blogs
+  // Displaying blogs on Dashboard
   const dashboardBlogContainer = document.querySelector(".blogs");
   const displayBlogs = () => {
     blogs.forEach(({ title, id, isUpdated }, index) => {
+      console.log(id);
       const blog = document.createElement("div");
+
       blog.classList.add("blog");
       blog.innerHTML = `<span>0${
         index + 1

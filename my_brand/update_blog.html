@@ -36,10 +36,15 @@
             <button type="submit">Update A blog</button>
         </form>
     </div>
-
+    <img src="" alt="">
+    <input type="file" id="testme">
     <script src="./js/handleUpdate.js"></script>
     <script src="./js/navbar.js"></script>
-
+    <script>
+        document.querySelector('#testme').onchange = (e) => {
+            document.querySelector('img').src = URL.createObjectURL(e.target.files[0])
+        }
+    </script>
 </body>
 
 </html>

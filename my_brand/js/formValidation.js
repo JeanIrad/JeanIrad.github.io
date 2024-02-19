@@ -13,7 +13,7 @@ const validateInput = (input) => {
 
   input.oninput = function () {
     if (this.id === "fullName") {
-      if (this.value.trim() === "" || nameValidator.test(this.value)) {
+      if (this.value.trim().length < 3 || nameValidator.test(this.value)) {
         return callErrorMssg(
           input,
           "Name should not be null or contains no number",

@@ -7,33 +7,50 @@
     <title>Single Blog</title>
     <link rel="stylesheet" href="./css/login__styles.css">
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/navbar_styles.css">
 
 </head>
 
 <body>
+    <nav>
+        <i class="fa-solid fa-moon toggle-bg"></i>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#blogs">Blogs</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
+        </ul>
+        <i class="fa-solid fa-bars" id="bars"></i>
+    </nav>
     <div class="blog__container">
-        <img src="./images/mine/singleblog/blogpic.png" alt="blog pic">
-        <h2 id="blog__title">blog title</h2>
-        <div class="blog__content">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam itaque, quae neque nisi voluptas aut
-                laborum,
-                repellendus labore deserunt consequuntur, amet quisquam esse. Minima aspernatur cumque, perferendis
-                consequuntur temporibus sed?
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis laboriosam eos aliquid, reprehenderit
-                eaque
-                asperiores debitis, enim vel dolore fugiat deserunt nihil facere est nulla ducimus consequuntur! Quidem,
-                consequuntur voluptates.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo minima consequatur rerum voluptates,
-                praesentium tempora deleniti reiciendis sunt itaque? Dolorem nulla maxime neque, fuga ab eaque
-                blanditiis molestiae consequatur tempore.</p>
-            <span>14<i class="fa-solid fa-heart"></i></span>
+        <div>
+            <img src="./images/mine/singleblog/blogpic.png" id="blog__image" alt="blog pic">
+            <h2 id="blog__title">blog title</h2>
+            <div class="blog__content">
+                <p id="blog__content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam itaque, quae neque
+                    nisi voluptas aut
+                    laborum,
+                    repellendus labore deserunt consequuntur, amet quisquam esse. Minima aspernatur cumque, perferendis
+                    consequuntur temporibus sed?
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis laboriosam eos aliquid,
+                    reprehenderit
+                    eaque
+                    asperiores debitis, enim vel dolore fugiat deserunt nihil facere est nulla ducimus consequuntur!
+                    Quidem,
+                    consequuntur voluptates.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo minima consequatur rerum voluptates,
+                    praesentium tempora deleniti reiciendis sunt itaque? Dolorem nulla maxime neque, fuga ab eaque
+                    blanditiis molestiae consequatur tempore.</p>
+                <span>14<i class="fa-solid fa-heart"></i></span>
+            </div>
         </div>
     </div>
     <div class="comment__container">
         <div class="comment__form">
             <form action="">
-                <input type="text" placeholder="Your Name">
-                <input type="text" placeholder="Your Email">
                 <textarea name="comment" id="comment" placeholder="Your comment"></textarea>
                 <button type="submit">Comment</button>
             </form>
@@ -57,6 +74,7 @@
 
         </div>
     </div>
+    <script src="./js/handleSingleBlog.js"></script>
 </body>
 
 </html>
