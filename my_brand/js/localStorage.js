@@ -13,7 +13,6 @@ createBlogForm.addEventListener("submit", function (e) {
     content: blogContent.value,
     image: URL.createObjectURL(blogImage.files[0]),
     id: Date.now(),
-    isUpdated: false,
   };
   addBlog(blog);
   blogTitle.value = "";
@@ -24,25 +23,3 @@ const addBlog = (blog) => {
   blogs.push(blog);
   localStorage.setItem("blogs", JSON.stringify(blogs));
 };
-
-// const displayBlogs = () => {
-//   const dashboardBlogContainer = document.querySelector(".blogs");
-//   blogs.forEach(({ title }, index) => {
-//     const blog = `
-// <div class="blog">
-// <span>0${index}</span> <span>${title}</span> <span role="button"><i
-//         class="fa-solid fa-pen"></i></span><span role="button"><i
-//         class="fa-solid fa-trash"></i></span>
-// </div>`;
-//     dashboardBlogContainer.appendChild(blog);
-//   });
-// };
-// displayBlogs();
-/*
-
-                <div class="blog">
-                    <span>01</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div>
-*/

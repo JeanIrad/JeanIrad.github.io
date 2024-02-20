@@ -65,7 +65,13 @@ validateInput(fullName);
 validateInput(email);
 validateInput(interest);
 validateInput(message);
-
+const appreciateUser = document.createElement("p");
+appreciateUser.textContent = "Thank you for contacting us!";
+appreciateUser.style.color = "lightgreen";
+appreciateUser.style.textAlign = "center";
+appreciateUser.style.backgroundColor = "#cfa412";
+appreciateUser.style.padding = "0.5rem 1rem";
+console.log(typeof appreciateUser.style);
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
   validateInput(fullName);
@@ -92,6 +98,10 @@ contactForm.addEventListener("submit", (e) => {
     email.value = "";
     interest.value = "";
     message.value = "";
-    alert("Thank you for contacting us!");
+    contactForm.parentElement.prepend(appreciateUser);
+    setTimeout(() => {
+      appreciateUser.style.display = "none";
+    }, 4000);
+    // alert("Thank you for contacting us!");
   }
 });

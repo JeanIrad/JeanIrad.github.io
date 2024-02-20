@@ -2,6 +2,10 @@ let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 document.addEventListener("DOMContentLoaded", () => {
   // Displaying blogs on Dashboard
   const dashboardBlogContainer = document.querySelector(".blogs");
+  blogs.length <= 0
+    ? (dashboardBlogContainer.innerHTML =
+        "<h2>Please create Blog to view the list</h2>")
+    : (dashboardBlogContainer.innerHTML = "");
   const displayBlogs = () => {
     blogs.forEach(({ title, id, isUpdated }, index) => {
       console.log(id);
@@ -19,30 +23,37 @@ document.addEventListener("DOMContentLoaded", () => {
   displayBlogs();
 
   // deleting blog
-
+  const deletePopup = document.querySelector(".delete__popup");
+  const deleteMsg = document.querySelector(".delete__popup p");
+  const deleteBtns = document.querySelectorAll(".delete__popup button");
+  console.log(deleteMsg.textContent);
   const deleteBlog = () => {
     const blogCollection = document.querySelectorAll(".blog");
-    // console.log(blogCollection);
     blogCollection.forEach(function (blogDiv) {
+      blogDiv.style.transition = "all 0.5s ease-in-out";
       blogDiv.onclick = (e) => {
         if (e.target.classList.contains("fa-trash")) {
-          // const deleteId = e.target.parentElement.dataset.id;
           const deleteId = assignBlogId(e);
           const blogToDelete = blogs.find(
             (blog) => blog.id === parseInt(deleteId)
           );
-          const confirmDelete = confirm(
-            `Are you sure you want to delete ${blogToDelete.title}?`
-          );
-          if (confirmDelete) {
-            let removeBlog = e.target.parentElement.parentElement;
-            removeBlog.remove();
-            blogs = blogs.filter((blog) => blog.id !== parseInt(deleteId));
-            localStorage.setItem("blogs", JSON.stringify(blogs));
-            displayBlogs();
-          } else {
-            return;
-          }
+
+          deleteMsg.textContent += ` ${blogToDelete.title}?`;
+          deletePopup.style.display = "block";
+          deleteBtns.forEach((btn) => {
+            btn.onclick = function (e) {
+              if (this.textContent === "Yes") {
+                blogs = blogs.filter((blog) => blog.id !== parseInt(deleteId));
+                blogDiv.remove();
+                localStorage.setItem("blogs", JSON.stringify(blogs));
+                displayBlogs();
+                deletePopup.style.display = "none";
+              } else {
+                deletePopup.style.display = "none";
+                return;
+              }
+            };
+          });
         } else if (e.target.classList.contains("fa-pen")) {
           const editId = assignBlogId(e);
           location.href = `update_blog.html?id=${editId}`;
@@ -51,8 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
   deleteBlog();
-
-  // edit blog
 
   const assignBlogId = (e) => {
     return e.target.parentElement.dataset.id;

@@ -12,7 +12,9 @@ form {
   width: 80%;
   margin-top: 4rem;
 }
-
+#blogContent {
+  padding-bottom: -3rem;
+}
 @media only screen and (width < 600px) {
   .create__blog__container {
     margin-top: 25%;

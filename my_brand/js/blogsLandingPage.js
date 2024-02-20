@@ -1,18 +1,6 @@
-/*
-        <div class="blog__container">
-            <div class="image">
-                <img src="./images/mine/blogs/image1.png" alt="blog Image">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis libero vitae harum! Voluptatem,
-                    quod voluptates quaerat iste fuga voluptate minus aperiam delectus amet natus placeat laborum est,
-                    distinctio iure deserunt!</p>
-            </div>
-            <a href="single_blog.html">read More</a>
-        </div>
-        */
 let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 document.addEventListener("DOMContentLoaded", function () {
   const blogsContainer = document.getElementById("blogs");
-  //   console.log(blogsContainer);
   if (blogs) {
     blogs.forEach(({ title, content, image, id }) => {
       const blog = document.createElement("div");

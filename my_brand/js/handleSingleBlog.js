@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("blog__title");
   const content = document.getElementById("blog__content");
   const image = document.getElementById("blog__image");
-  //   console.log(title.textContent);
   title.textContent = blog.title;
   content.textContent = blog.content;
   image.src = blog.image;

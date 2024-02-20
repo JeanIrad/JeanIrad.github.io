@@ -3,7 +3,7 @@ const moon = document.querySelector(".toggle-bg");
 const navList = document.querySelector("nav ul");
 const navBar = document.querySelector("nav");
 const footer = document.querySelector("footer");
-const contactImageBg = document.querySelector(".contact__container .image");
+// const contactImageBg = document.querySelector(".contact__container .image") || null;
 const allParagraphs = document.querySelectorAll("p");
 const allLinks = document.querySelectorAll("a");
 const allLabels = document.querySelectorAll("label");
@@ -45,7 +45,7 @@ moon.addEventListener("click", function (e) {
       footer.classList.add("light-mode");
       bars.classList.add("light-mode_text");
       navList.classList.add("light-mode");
-      contactImageBg.classList.add("contact_image__light__background");
+      // contactImageBg.classList.add("contact_image__light__background");
       combined.forEach((tag) => {
         tag.classList.remove("dark-mode_text");
         tag.classList.add("light-mode_text");
@@ -69,5 +69,3 @@ moon.addEventListener("click", function (e) {
     combined.forEach((tag) => tag.classList.remove("light-mode_text"));
   }
 });
-
-console.log(footer);
