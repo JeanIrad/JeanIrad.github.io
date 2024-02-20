@@ -7,10 +7,11 @@
   text-decoration: none;
 }
 :root {
-  --nav-item-primary-color: #eee;
-  --nav-item-secondary-color: #151733;
-  --primary-background: #151733;
-  --secondary-background: #fff;
+  --headings-color: #f44336;
+  --bg-color-dark: #151733;
+  --bg-color-light: #fff;
+  --text-color-dark: #eee;
+  --text-color-light: #000c24;
 }
 html {
   scroll-behavior: smooth;
@@ -19,11 +20,22 @@ html {
 body {
   width: 80%;
   width: 100%;
-  background: var(--primary-background);
-  /* background-color: rgb(90, 38, 38); */
   display: grid;
   min-height: 100vh;
   margin: 0 auto;
+  transition: all 0.4s ease-in-out;
+}
+.dark-mode {
+  background-color: var(--bg-color-dark) !important;
+}
+.light-mode {
+  background-color: var(--bg-color-light) !important;
+}
+.dark-mode_text {
+  color: var(--text-color-dark) !important;
+}
+.light-mode_text {
+  color: var(--text-color-light) !important;
 }
 .main-home-container {
   margin-top: 5%;
@@ -62,7 +74,7 @@ body {
 }
 .main-home-container .description div h2 {
   color: #151733;
-  -webkit-text-stroke: 1px #fff;
+  -webkit-text-stroke: 1px var(--text-color-dark);
   line-height: 150%;
 }
 .main-home-container .description h3 {
@@ -170,7 +182,8 @@ button {
 .portfolio .portfolio__title {
   text-align: center;
 }
-.portfolio__title h4 {
+.portfolio__title h4,
+h2 {
   margin-top: 1rem;
   color: #f44336;
 }
@@ -273,6 +286,9 @@ button {
   background: linear-gradient(to bottom, #2222aa, #363677, #020208);
   border-radius: 0.5rem;
 }
+.contact_image__light__background {
+  background: linear-gradient(to bottom, #eee, #aaa, #888) !important;
+}
 .contact__container .image img {
   width: 100%;
   height: auto;
@@ -343,29 +359,7 @@ button {
   border-bottom-color: #f44336 !important;
 }
 /* footer */
-footer {
-  background: #000c24;
-  height: 5rem;
-  display: grid;
-  place-items: center;
-}
-footer div {
-  display: flex;
-  justify-content: space-around;
-  width: 75%;
-}
-footer div i {
-  font-size: 1.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: #f44336;
-}
-#logo {
-  color: #cfa511;
-  font-weight: 600;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-}
+
 @media only screen and (width < 720px) {
   .main-home-container {
     flex-flow: column;

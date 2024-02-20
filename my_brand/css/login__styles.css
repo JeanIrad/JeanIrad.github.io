@@ -183,6 +183,7 @@ textarea {
   align-self: flex-end;
   color: #cfa511;
 }
+
 @media only screen and (width < 720px) {
   .login__container {
     flex-direction: column;

@@ -1,5 +1,5 @@
 const navItems = document.querySelectorAll(".nav__item");
-// console.log(navItems);
+const closeNav = document.querySelector(".fa-xmark");
 navItems.forEach((navItem) => {
   navItem.style.cursor = "pointer";
   navItem.onclick = function () {
@@ -9,4 +9,6 @@ navItems.forEach((navItem) => {
       : "";
   };
 });
-navItems[0].classList.add("active");
+closeNav.onclick = function () {
+  this.parentElement.parentElement.style.width = "50%";
+};

@@ -13,18 +13,6 @@ form {
   margin-top: 4rem;
 }
 
-.update__blog__container {
-  margin-top: 30%;
-  width: 100%;
-}
-.update__blog__container h2 {
-  text-align: center;
-  color: #cfa511;
-}
-.update__blog__container form {
-  margin: auto;
-  margin-top: 2rem;
-}
 @media only screen and (width < 600px) {
   .create__blog__container {
     margin-top: 25%;

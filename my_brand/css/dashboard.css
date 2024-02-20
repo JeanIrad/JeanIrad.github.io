@@ -30,6 +30,7 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  transition: 0.5s ease-in-out;
 }
 .close__icon {
   position: absolute;
