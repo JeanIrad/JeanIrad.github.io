@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         const checkPassword = user.password === password;
         if (checkPassword) {
-          return (window.location.href = `index.html?isLodgedIn=${true}`);
+          return (window.location.href = `index.html?isLoggedIn=${true}`);
         } else {
           console.log("Invalid Password");
           confirmMessage.textContent = "invalid Password";

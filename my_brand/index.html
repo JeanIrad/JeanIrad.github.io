@@ -354,7 +354,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const loginItem = document.getElementById('login__item')
             const isUserLogged = new URLSearchParams(window.location.search)
-            const isLoggedIn = isUserLogged.get('isloggedIn')
+            const isLoggedIn = isUserLogged.get('isLoggedIn')
             console.log(isLoggedIn)
             if (isLoggedIn === 'true') {
                 loginItem.style.display = 'none'
