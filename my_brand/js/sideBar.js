@@ -14,9 +14,13 @@
 // };
 
 const admin = document.getElementById("admin");
+const userNum = document.getElementById("userNum");
 console.log(admin);
 document.addEventListener("DOMContentLoaded", () => {
   const users = JSON.parse(localStorage.getItem("users")) || [];
+  users.length > 0
+    ? (userNum.textContent = users.length)
+    : (userNum.textContent = "No User yet!");
   const authorizedPersonel = users.find((user) =>
     user.email.startsWith("adminjean")
   );
