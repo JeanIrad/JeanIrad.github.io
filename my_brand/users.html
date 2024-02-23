@@ -19,43 +19,48 @@
 
     </div>
     <div class="main__container">
-        <div>
-            <img src="./images/mine/user.jpg" alt="userPlaceHolder">
-            <div>
-                <span>email@gmail.com</span>
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </div>
-        <div>
-            <img src="./images/mine/user.jpg" alt="userPlaceHolder">
-            <div>
-                <span>email@gmail.com</span>
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </div>
-        <div>
-            <img src="./images/mine/user.jpg" alt="userPlaceHolder">
-            <div>
-                <span>email@gmail.com</span>
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </div>
-        <div>
-            <img src="./images/mine/user.jpg" alt="userPlaceHolder">
-            <div>
-                <span>email@gmail.com</span>
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </div>
-        <div>
-            <img src="./images/mine/user.jpg" alt="userPlaceHolder">
-            <div>
-                <span>email@gmail.com</span>
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </div>
-    </div>
 
+    </div>
+    <script>
+        const userContainer = document.querySelector('.main__container')
+        const noUser = document.createElement('h2')
+        document.addEventListener('DOMContentLoaded', function () {
+            const users = JSON.parse(localStorage.getItem('users')) || []
+            console.log(users)
+            noUser.textContent = 'No user signed-up yet!'
+            noUser.style.textAlign = 'center'
+            if (users.length === 0) {
+                userContainer.append(noUser)
+            } else {
+                noUser.style.display = 'none'
+                users.forEach(user => {
+                    const wrapper = document.createElement('div')
+                    wrapper.innerHTML = `
+                <img src="./images/mine/user.jpg" alt="userPlaceHolder">
+            <div>
+                <span>${user.email}</span>
+                <span>Name: ${user.firstName}</span>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+                `
+                    userContainer.appendChild(wrapper)
+                    console.log('user created')
+
+                });
+            }
+        })
+
+        /*
+        <div>
+            <img src="./images/mine/user.jpg" alt="userPlaceHolder">
+            <div>
+                <span>email@gmail.com</span>
+                <span>Name: jean</span>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </div>
+        */
+    </script>
 </body>
 
 </html>
