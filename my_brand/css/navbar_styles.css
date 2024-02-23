@@ -1,3 +1,12 @@
+:root {
+  --headings-color: #f44336;
+  --bg-color-dark: #151733;
+  --text-color-dark: #eee;
+}
+.light-mode {
+  --bg-color-light: #fff !important;
+  --text-color-light: #000c24 !important;
+}
 nav {
   position: fixed;
   top: 0;
@@ -6,7 +15,7 @@ nav {
   height: 3.5rem;
   display: flex;
   box-shadow: 2px 1px 5px rgba(244, 67, 54, 0.4);
-  background: #000c24;
+  background: var(--text-color-light);
 }
 nav ul {
   list-style: none;
@@ -27,15 +36,16 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  color: #eee;
+  color: var(--text-color-dark);
 }
 
-.toggle-bg {
+#toggle-bg {
   display: block;
 
   position: absolute;
   font-size: 30px;
   font-size: 2rem;
+  cursor: pointer;
   color: #cfa511;
   top: 1rem;
   left: 1rem;
@@ -64,7 +74,7 @@ nav ul li a:hover::after {
     font-size: 30px;
     font-size: 2.5rem;
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--text-color-dark);
     position: absolute;
     right: 1rem;
     top: 1rem;
@@ -77,9 +87,7 @@ nav ul li a:hover::after {
   .close {
     right: 0;
   }
-  /* nav {
-    position: relative;
-  } */
+
   nav ul {
     flex-direction: column;
     background: #000c24;

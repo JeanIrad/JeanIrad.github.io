@@ -7,15 +7,20 @@
     <title>Update Blog</title>
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/navbar_styles.css">
-    <link rel="stylesheet" href="./css/login__styles.css">
     <link rel="stylesheet" href="./css/add_update_blog.css">
-    <link rel="stylesheet" href="./css/update_blog.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
+    <link rel="stylesheet" href="./css/login__styles.css">
+    <link rel="stylesheet" href="./css/update_blog.css">
+    <style>
+        footer {
+            margin-top: 20%;
+        }
+    </style>
 </head>
 
 <body>
     <nav>
-        <i class="fa-solid fa-moon toggle-bg"></i>
+        <i class="fa-solid fa-moon " id="toggle-bg"></i>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -31,7 +36,12 @@
     <div class="update__blog__container" id="update">
         <h2>Update a Blog</h2>
         <form action="" id="updateBlogForm">
-            <input type="text" placeholder="Blog Title" id="blogTitle">
+            <fieldset>
+                <legend>
+                    Blog Title
+                </legend>
+                <input type="text" placeholder="Blog Title" id="blogTitle">
+            </fieldset>
             <textarea name="content" id="blogContent" placeholder="Content"></textarea>
             <input type="file" id="blogImage">
             <button type="submit">Update A blog</button>
@@ -48,9 +58,67 @@
     <script src="./js/handleUpdate.js"></script>
     <script src="./js/navbar.js"></script>
     <script>
-        document.querySelector('#testme').onchange = (e) => {
-            document.querySelector('img').src = URL.createObjectURL(e.target.files[0])
+
+
+        const title = document.getElementById('blogTitle')
+        const content = document.getElementById('blogContent')
+        const Image = document.getElementById('blogImage')
+        const fieldset = document.querySelector('fieldset')
+        const errorHTML = document.createElement('span')
+        errorHTML.style.color = '#fa4433'
+        errorHTML.style.marginTop = '-1rem'
+
+        function validateInput(input, message) {
+            errorHTML.textContent = message
+            if (input.type === 'text') {
+                input.oninput = function (e) {
+                    if (this.value.trim().length < 5) {
+                        fieldset.insertAdjacentElement('afterend', errorHTML)
+                        return false
+                    } else {
+                        errorHTML.style.display = 'none'
+                        return true
+                    }
+                }
+            } else if (input.type === 'file') {
+                input.onchange = function () {
+                    if (this.files.length === 0) {
+                        this.insertAdjacentElement('afterend', errorHTML)
+                        return false
+                    } else {
+                        errorHTML.style.display = 'none'
+                        return true
+                    }
+                }
+            }
+            else {
+                input.oninput = function (e) {
+                    if (this.value.trim().length < 50) {
+                        this.insertAdjacentElement('afterend', errorHTML)
+                        return false
+                    } else {
+                        errorHTML.style.display = 'none'
+                        return true
+                    }
+                }
+            }
         }
+        title.onfocus = function () {
+            return validateInput(this, 'Please Write A valid Blog title')
+        }
+        title.onblur = function () {
+            return validateInput(this, 'Please Write A valid Blog title')
+        }
+        content.onfocus = function () {
+            return validateInput(this, 'Please write enough content')
+        }
+        content.onblur = function () {
+            return validateInput(this, 'Please write content!')
+        }
+        Image.onfocus = function () {
+            return validateInput(this, 'Please provide an image')
+        }
+
     </script>
 </body>
 

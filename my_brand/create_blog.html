@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="./css/login__styles.css">
     <link rel="stylesheet" href="./css/add_update_blog.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
+    <style>
+        footer {
+            margin-top: 10%;
+        }
+    </style>
 </head>
 
 <body>
     <nav>
-        <i class="fa-solid fa-moon toggle-bg"></i>
+        <i class="fa-solid fa-moon " id="toggle-bg"></i>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -22,7 +27,7 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#blogs">Blogs</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="login.html" class="active">Login</a></li>
+            <li id="login__item"><a href="login.html" class="active">Login</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
@@ -30,9 +35,17 @@
     <div class="create__blog__container" id="create">
         <h2>Create a Blog</h2>
         <form action="" id="createBlogForm">
-            <input type="text" placeholder="Blog Title" id="blogTitle">
+            <fieldset>
+                <legend>
+                    Blog Title
+                </legend>
+                <input type="text" placeholder="Blog Title" id="blogTitle">
+            </fieldset>
             <textarea name="content" id="blogContent" placeholder="Content"></textarea>
-            <input type="file" id="blogImage">
+            <div>
+                <label for="blogImage"> Upload Image <i class="fa-solid fa-upload"></i></label>
+                <input type="file" id="blogImage" accept=".jpg, .jpeg, .png">
+            </div>
             <button type="submit">create A blog</button>
         </form>
     </div>
@@ -47,6 +60,81 @@
 
     <script src="./js/localStorage.js"></script>
     <script src="./js/navbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // login disappears
+            const loginItem = document.getElementById('login__item')
+            const isUserLogged = new URLSearchParams(window.location.search)
+            // console.log(isUserLogged.get('isloggedIn'))
+            const isLoggedIn = isUserLogged.get('isloggedIn')
+            if (isLoggedIn === 'true') {
+                loginItem.style.display = 'none'
+            } else {
+                loginItem.style.display = 'block'
+            }
+
+            const title = document.getElementById('blogTitle')
+            const content = document.getElementById('blogContent')
+            const Image = document.getElementById('blogImage')
+            const fieldset = document.querySelector('fieldset')
+            const errorHTML = document.createElement('span')
+            errorHTML.style.color = '#fa4433'
+            errorHTML.style.marginTop = '-1rem'
+
+            function validateInput(input, message) {
+                errorHTML.textContent = message
+                if (input.type === 'text') {
+                    input.oninput = function (e) {
+                        if (this.value.trim().length < 5) {
+                            fieldset.insertAdjacentElement('afterend', errorHTML)
+                            return false
+                        } else {
+                            errorHTML.style.display = 'none'
+                            return true
+                        }
+                    }
+                } else if (input.type === 'file') {
+                    input.onchange = function () {
+                        if (this.files.length === 0) {
+                            this.insertAdjacentElement('afterend', errorHTML)
+                            return false
+                        } else {
+                            errorHTML.style.display = 'none'
+                            return true
+                        }
+                    }
+                }
+                else {
+                    input.oninput = function (e) {
+                        if (this.value.trim().length < 50) {
+                            this.insertAdjacentElement('afterend', errorHTML)
+                            return false
+                        } else {
+                            errorHTML.style.display = 'none'
+                            return true
+                        }
+                    }
+                }
+            }
+            title.onfocus = function () {
+                return validateInput(this, 'Please Write A valid Blog title')
+            }
+            title.onblur = function () {
+                return validateInput(this, 'Please Write A valid Blog title')
+            }
+            content.onfocus = function () {
+                return validateInput(this, 'Please write enough content')
+            }
+            content.onblur = function () {
+                return validateInput(this, 'Please write content!')
+            }
+            Image.onfocus = function () {
+                return validateInput(this, 'Please provide an image')
+            }
+
+        })
+
+    </script>
 
 </body>
 

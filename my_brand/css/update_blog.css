@@ -1,4 +1,15 @@
 .update__blog__container {
+  width: 80%;
+  margin: 5% auto;
   margin-top: 10%;
+}
+input {
   width: 100%;
+}
+@media screen and (width < 600px) {
+  .update__blog__container {
+    margin-top: 25%;
+    width: 100%;
+    padding: 0 0.5rem;
+  }
 }

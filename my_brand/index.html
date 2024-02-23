@@ -13,7 +13,7 @@
 
 <body class="dark-mode">
     <nav>
-        <i class="fa-solid fa-moon toggle-bg"></i>
+        <i class="fa-solid fa-moon" id="toggle-bg"></i>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -21,7 +21,7 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#blogs">Blogs</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="login.html" class="active">Login</a></li>
+            <li id="login__item"><a href="login.html" class="active">Login</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
@@ -350,7 +350,20 @@
     <script src="./js/slider.js"></script>
     <script src="./js/formValidation.js"></script>
     <script src="./js/blogsLandingPage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginItem = document.getElementById('login__item')
+            const isUserLogged = new URLSearchParams(window.location.search)
+            const isLoggedIn = isUserLogged.get('isloggedIn')
+            console.log(isLoggedIn)
+            if (isLoggedIn === 'true') {
+                loginItem.style.display = 'none'
+            } else {
+                loginItem.style.display = 'block'
+            }
 
+        })
+    </script>
 </body>
 
 </html>
