@@ -61,9 +61,9 @@ form input::placeholder {
 form input:focus::placeholder {
   transform: translateY(-1rem);
 }
-/* input[type="file"] {
+input[type="file"] {
   display: none;
-} */
+}
 #pw {
   position: relative;
 }
