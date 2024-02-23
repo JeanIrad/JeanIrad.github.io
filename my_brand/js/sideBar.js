@@ -12,15 +12,21 @@
 // closeNav.onclick = function () {
 //   this.parentElement.parentElement.style.width = "50%";
 // };
+const updateDashboardNumbers = (arr, dashItem) => {
+  return arr.length > 0
+    ? (dashItem.textContent = arr.length)
+    : (dashItem.textContent = "No item");
+};
 
 const admin = document.getElementById("admin");
 const userNum = document.getElementById("userNum");
+const blogNum = document.getElementById("blogNum");
 console.log(admin);
 document.addEventListener("DOMContentLoaded", () => {
   const users = JSON.parse(localStorage.getItem("users")) || [];
-  users.length > 0
-    ? (userNum.textContent = users.length)
-    : (userNum.textContent = "No User yet!");
+  const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+  updateDashboardNumbers(users, userNum);
+  updateDashboardNumbers(blogs, blogNum);
   const authorizedPersonel = users.find((user) =>
     user.email.startsWith("adminjean")
   );
