@@ -1,3 +1,7 @@
+:root {
+  --bg-color: #ccc;
+  --text-color: #000d29;
+}
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +17,7 @@ body {
   width: 100%;
   margin: 0 auto;
   min-height: 100vh;
-  background: #151733;
+  background: var(--bg-color);
   display: grid;
   grid-template-columns: 1fr 5fr;
   grid-template-areas: "sidebar main";
@@ -24,10 +28,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  background-color: rgba(14, 211, 168, 0.4);
+  background-color: rgba(14, 211, 168, 0.7);
   padding: 2rem 4rem;
   border-radius: 0.5rem;
-  box-shadow: -2px -3px 5px #0cccea;
+  box-shadow: -2px -1px 2px blue;
   transition: all 0.5s ease-in-out;
   transition-delay: 0.6s;
   display: none;
@@ -52,7 +56,7 @@ body {
 }
 .side__bar {
   grid-area: sidebar;
-  background: rgba(13, 53, 139, 0.5);
+  background: rgb(12, 3, 114);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -75,12 +79,15 @@ body {
   padding: 0.5rem;
   border-radius: 0.4rem;
 }
+.nav__item a,
+.icon__container a {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
 .nav__item,
 .icon__container {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  transition: all 0.5s;
+  transition: 0.3s;
 }
 .nav__item:hover,
 .icon__container:hover {
@@ -103,8 +110,10 @@ body {
   align-items: center;
   width: 100%;
 }
-.top__container .dashboard__title p {
-  color: #888;
+
+.top__container .dashboard__title p,
+h2 {
+  color: var(--text-color);
   margin-top: 0.5rem;
 }
 .top__container form {
@@ -116,7 +125,7 @@ body {
   outline: none;
   border: none;
   border-radius: 0.5rem;
-  background: #888;
+  background: #2d594d;
 }
 .top__container form button {
   position: absolute;
@@ -196,8 +205,8 @@ body {
   cursor: pointer;
 }
 @media only screen and (width < 600px) {
-  .nav__item,
-  .icon__container {
+  .nav__item a,
+  .icon__container a {
     flex-direction: column;
   }
   .top__container form {
