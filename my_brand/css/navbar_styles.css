@@ -2,10 +2,24 @@
   --headings-color: #f44336;
   --bg-color-dark: #151733;
   --text-color-dark: #eee;
-}
-.light-mode {
   --bg-color-light: #fff !important;
   --text-color-light: #000c24 !important;
+}
+.light__mode {
+  background: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+.dark__mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+.nav__dark__mode {
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+}
+.nav__light__mode {
+  background: var(--bg-color-light) !important;
+  color: var(--text-color-light) !important;
 }
 nav {
   position: fixed;
@@ -16,6 +30,8 @@ nav {
   display: flex;
   box-shadow: 2px 1px 5px rgba(244, 67, 54, 0.4);
   background: var(--text-color-light);
+  transition: 0.3s;
+  color: var(--text-color-dark);
 }
 nav ul {
   list-style: none;
@@ -74,7 +90,7 @@ nav ul li a:hover::after {
     font-size: 30px;
     font-size: 2.5rem;
     font-size: 1.5rem;
-    color: var(--text-color-dark);
+    /* color: var(--text-color-dark); */
     position: absolute;
     right: 1rem;
     top: 1rem;
@@ -93,7 +109,8 @@ nav ul li a:hover::after {
     background: #000c24;
     height: 100vh;
     width: 90%;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    gap: 1.5rem;
     position: absolute;
     right: -100%;
     top: 0;
