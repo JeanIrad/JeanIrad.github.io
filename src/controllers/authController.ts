@@ -26,7 +26,6 @@ export default class AuthController {
   static signup = catchAsync(
     async (req: Request, res: Response, next: NextFunction) => {
       const { email, password, firstName, lastName } = req.body;
-      // const user = await User.create({firstName, lastName, email, password})
       const user = await User.findOne({ email });
       if (user)
         return next(
