@@ -1,6 +1,9 @@
 import express from "express";
+import dotenv from "dotenv";
+
 import morgan from "morgan";
 import bodyParser from "body-parser";
+dotenv.config({ path: `${__dirname}/env/config.env` });
 
 import blogRouter from "./routers/blogRouter";
 import HandleInvalidUrl from "./utils/invalidUrl";
@@ -34,4 +37,8 @@ app.use("/api/v1/portfolio/", portfolioRouter);
 
 app.use("*", handleInvalidUrl);
 app.use(sendErrorDev);
+
+const PORT = process.env.PORT || 6000;
+
+app.listen(PORT, () => console.log(`app running on port ${PORT}... `));
 export default app;
