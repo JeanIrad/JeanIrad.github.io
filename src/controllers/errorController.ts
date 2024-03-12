@@ -19,15 +19,25 @@ export default class GlobalError {
       });
     }
     if (err.name === "Error") {
-      return res.status(401).json({
+      return res.status(err.statusCode).json({
         message: err.message,
+        // name: err.name,
       });
     }
     if (err.name === "JsonWebTokenError")
-      return res.status(401).json({
-        message: `JWT error ${err.message}`,
+      return res.status(400).json({
+        message: `invalid token!`,
       });
-    console.log(err.name);
+    if (err.name === "TokenExpiredError")
+      return res.status(400).json({
+        message: "token expired, please login to proceed!",
+      });
+    if (err.name === "CastError")
+      return res.status(400).json({
+        // message: `Invalid ${err.path}: ${err.value}`,
+        message: err,
+        name: "handling castError",
+      });
     res.status(err.statusCode).json({
       status: err.status,
       message: err.message,

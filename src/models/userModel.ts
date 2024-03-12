@@ -6,7 +6,7 @@ import validator from "validator";
 //     password: string
 // }
 
-const userSchema = new Schema({
+export const userSchema = new Schema({
   firstName: {
     type: String,
     required: [true, "please provide the first Name"],
@@ -28,15 +28,14 @@ const userSchema = new Schema({
     select: false,
     minlength: 8,
   },
-  // passwordConfirm: {
-  //     type: String,
-  //     required: [true, 'Please confirm password'],
-  //     validate:{
-  //         validator: function( val: string){
-  //             return val === this.password
-  //         }
-  //     }
-  // }
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
 userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 12);

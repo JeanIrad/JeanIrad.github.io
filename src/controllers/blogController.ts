@@ -1,8 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-
+import multer from "multer";
+import path from "path";
 import catchAsync from "../utils/catchAsync";
 import AppError from "../utils/appError";
 import Blog from "../models/blogModel";
+import mime from "mime-types";
+import upload from "../middleware/upload";
+// const uploadImage = upload('image')
+import cloudinary from "../utils/cloudinary";
 
 export default class BlogController {
   static getAllBlogs = catchAsync(
@@ -18,11 +23,25 @@ export default class BlogController {
 
   static createBlog = catchAsync(
     async (req: Request, res: Response, next: NextFunction) => {
-      // const { title, description, image } = req.body;
-      const blog = await Blog.create(req.body);
-      res.status(200).json({
+      console.log(req.body);
+      if (req.file) {
+        const { title, description, image, createdBy } = req.body;
+        upload.single("image");
+        const uploadImage = await cloudinary.uploader.upload(req.file!.path);
+        console.log(uploadImage.secure_url);
+        const newBlog = new Blog({
+          title,
+          description,
+          imageUrl: uploadImage.secure_url,
+          createdBy,
+        });
+        await newBlog.save();
+      }
+      const newBlog = await Blog.create(req.body);
+
+      res.status(201).json({
         status: "success",
-        data: blog,
+        data: newBlog,
       });
     }
   );
@@ -45,7 +64,6 @@ export default class BlogController {
   static deleteBlog = catchAsync(
     async (req: Request, res: Response, next: NextFunction) => {
       const blog = await Blog.findByIdAndDelete(req.params.id);
-      // console.log(blog);
       if (!blog) {
         return next(
           new AppError(`No blog found with Id ${req.params.id}`, 404)

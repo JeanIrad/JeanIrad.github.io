@@ -1,4 +1,5 @@
-import { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
+import multer from "multer";
 
 const blogSchema = new Schema({
   title: {
@@ -10,7 +11,18 @@ const blogSchema = new Schema({
     type: String,
     required: [true, "A blog must have a description"],
   },
-  image: String,
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
+  imageUrl: {
+    type: String,
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 const Blog = model("Blog", blogSchema);
 export default Blog;
