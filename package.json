@@ -7,8 +7,8 @@
     "^.+\\.tsx?$": "babel-jest"
   },
   "scripts": {
-    "dev": "nodemon --exec ts-node ./src/index.ts",
-    "start": "node  --exec ts-node ./src/index.ts && set NODE_ENV=production",
+    "dev": "nodemon  ts-node ./src/index.ts",
+    "start": "node   ts-node ./src/index.ts && set NODE_ENV=production",
     "test": "jest --forceExit --coverage"
   },
   "keywords": [],
