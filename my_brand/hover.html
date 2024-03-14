@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        /* CSS to style the button and paragraph */
+        #hover-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #hover-paragraph {
+            padding: 10px;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        #hover-button:hover+#hover-paragraph {
+            background-color: red;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: auto;
+            margin: auto;
+            background-color: #d492c2;
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            transition: transform 1s ease-in-out;
+        }
+
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .container .par {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            transition: height 1s ease-in-out;
+            right: 0;
+            bottom: 0;
+            height: 0;
+            overflow: hidden;
+            /* top: 50%; */
+            /* display: none; */
+        }
+
+        .container:hover #hover-button {
+            background-color: #d492c2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML structure with button and paragraph -->
+    <button id="hover-button">Hover Me</button>
+    <p id="hover-paragraph">This is the paragraph. Hover over the button to change its background color to red.</p>
+    <div class="container">
+        <img src="./images/mine/image3.png" alt="">
+        <div class="par">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur nam perspiciatis atque unde deleniti
+                qui, eius quas nihil? Eos, ipsam dicta! Incidunt maiores praesentium rem necessitatibus alias doloribus
+                in
+                laborum?</p>
+            <button>Go</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

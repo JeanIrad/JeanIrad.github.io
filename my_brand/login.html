@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/navbar_styles.css">
-    <link rel="stylesheet" href="./css/login__styles.css">
-    <link rel="stylesheet" href="./css/footer_styles.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    <!-- <link rel="stylesheet" href="./css/navbar_styles.css"> -->
 </head>
 
 <body>
@@ -28,63 +32,63 @@
     <div class="popup__message">
     </div>
     <div class="login__container">
-        <form action="" id="loginForm">
+        <h2>Login</h2>
+        <form id="loginForm">
             <fieldset>
                 <legend>
-                    Email
+                    &nbsp;Email <i class="fa-solid fa-envelope"></i>&nbsp;
                 </legend>
                 <input type="text" placeholder="Your email" id="login-email" class="login__input">
             </fieldset>
             <fieldset id="pw">
                 <legend>
-                    Password
+                    &nbsp;Password <i class="fa-solid fa-lock"></i>&nbsp;
                 </legend>
-                <input type="password" placeholder="Your password" id="login__password" class="login__input">
-                <span><a href="#">forgot password?</a></span>
+                <input type="password" placeholder="Your password" id="password" class="login__input">
+                <span id="forgetPassword"><a href="#">forgot password?</a></span>
+                <i id="showPassword" class="fa-solid fa-eye"></i>
+                <!-- <i class="fa-solid fa-eye-slash"></i> -->
             </fieldset>
             <button type="submit">Login</button>
         </form>
+        <p id="signup__text">Don't have account? <a href="signup.html" id="signup__link">sign up</a></p>
     </div>
-    <p id="signup__text">Don't have account? <a href="#signup" id="signup__link">sign up</a></p>
-    <div class="signup__container" id="signup">
-        <h2>Sign up here</h2>
-        <form action="" id="signupForm">
-            <fieldset>
-                <legend>Full Name</legend>
-                <input type="text" placeholder="Your full Name" id="fullName" class="sign__input">
-            </fieldset>
-            <fieldset>
-                <legend>
-                    Email
-                </legend>
-                <input type="email" placeholder="Your email" id="signup_email" class="sign__input">
-            </fieldset>
-            <fieldset>
-                <legend>
-                    Password
-                </legend>
-                <input type="password" placeholder="Your password" id="signup_password" class="sign__input">
-            </fieldset>
-            <fieldset>
-                <legend>
-                    Confirm Password
-                </legend>
-                <input type="password" placeholder="Your password again" id="passwordConfirm" class="sign__input">
-            </fieldset>
-            <button type="submit">Sign Up</button>
-        </form>
-    </div>
+
     <footer id="footer" class="footer">
-        <div>
-            <p>&copy; 2024 Rights reserved by <span id="logo">
-                    <'Jean' />
-                </span> </p>
-            <a href="#"> <i class="fa-solid fa-arrow-up"></i></a>
-        </div>
+
+        <p>&copy; 2024 rights reserved by <span> &LeftAngleBracket; Jean/&RightAngleBracket;</span></p>
+        <a href="#"> <i class="fa-solid fa-arrow-up"></i></a>
+
     </footer>
     <script src="./js/navbar.js"></script>
-    <script src="./js/signup.js"></script>
+    <!-- <script src="./js/signup.js"></script> -->
+    <script>
+        const showPasswordMssg = document.createElement('span')
+        showPasswordMssg.textContent = 'write a valid password'
+        showPasswordMssg.style.color = 'brown'
+        const showPassword = document.getElementById('showPassword')
+        const passwordText = document.getElementById('password')
+        showPassword.addEventListener('click', function (e) {
+            if (passwordText.value.trim().length > 0) {
+                if (e.target.classList.contains('fa-eye')) {
+                    passwordText.type = 'text'
+                    e.target.classList.remove('fa-eye')
+                    e.target.classList.add('fa-eye-slash')
+                } else {
+                    e.target.classList.remove('fa-eye-slash')
+                    e.target.classList.add('fa-eye')
+                    passwordText.type = 'password'
+                }
 
+            } else {
+                passwordText.parentElement.insertAdjacentElement('afterend', showPasswordMssg)
+                setTimeout(() => {
+                    showPasswordMssg.style.display = 'none'
+                }, 2000)
+            }
+        })
+    </script>
+    <script src="./scripts/login.js"></script>
 </body>
 
 </html>

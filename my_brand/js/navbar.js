@@ -6,8 +6,8 @@ const body = document.body;
 const footer = document.querySelector("footer");
 
 bars.onclick = function () {
-  navList.classList.toggle("close");
-  if (navList.classList.contains("close")) {
+  navList.classList.toggle("open_nav");
+  if (navList.classList.contains("open_nav")) {
     this.classList.remove("fa-bars");
     this.classList.add("fa-xmark");
   } else {
