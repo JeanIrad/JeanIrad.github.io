@@ -1,14 +1,90 @@
-.update__blog__container {
-  width: 80%;
-  margin: 5% auto;
-  margin-top: 10%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  color: #000c24;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+.main__container {
+  width: 50%;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  border: inset 1.5px #000c24;
+  border-radius: 0.5rem;
+}
+button {
+  padding: 0.4rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: #adb15f;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: inherit;
+  margin-top: 0.5rem;
+  transition: background 0.5s ease-in-out;
+}
+button:hover {
+  background: #dfe5e4;
+}
+fieldset {
+  background: #dfe5e4;
+  border-radius: 0.5rem;
+  border: 1.4px rgba(12, 12, 83, 0.6) solid;
+  position: relative;
 }
 input {
   width: 100%;
+  height: 2rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  text-align: center;
 }
-@media screen and (width < 600px) {
-  .update__blog__container {
-    margin-top: 25%;
+input::placeholder {
+  transition: transform 0.4s ease-in-out;
+}
+input:focus::placeholder {
+  transform: translateY(-0.6rem);
+}
+textarea {
+  min-height: 5rem;
+  background-color: #dfe5e4;
+  border: 1px solid #000c24;
+  outline: none;
+  padding: 0.5rem;
+}
+.upload__image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+input[type="file"] {
+  width: 50%;
+}
+@media screen and (width < 730px) {
+  .main__container {
+    margin-top: 10%;
     width: 100%;
     padding: 0 0.5rem;
   }

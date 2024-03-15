@@ -6,16 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Blog</title>
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/navbar_styles.css">
-    <link rel="stylesheet" href="./css/add_update_blog.css">
-    <link rel="stylesheet" href="./css/footer_styles.css">
-    <link rel="stylesheet" href="./css/login__styles.css">
+    <link rel="stylesheet" href="./css/nav.styles.css">
     <link rel="stylesheet" href="./css/update_blog.css">
-    <style>
-        footer {
-            margin-top: 20%;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/footer_styles.css">
+
 </head>
 
 <body>
@@ -33,7 +27,7 @@
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
 
-    <div class="update__blog__container" id="update">
+    <div class="main__container">
         <h2>Update a Blog</h2>
         <form action="" id="updateBlogForm">
             <fieldset>
@@ -43,7 +37,7 @@
                 <input type="text" placeholder="Blog Title" id="blogTitle">
             </fieldset>
             <textarea name="content" id="blogContent" placeholder="Content"></textarea>
-            <div>
+            <div class="upload__image">
                 <label for="blogImage">Upload Image <i class="fa-solid fa-upload"></i></label>
                 <input type="file" id="blogImage">
             </div>
@@ -51,12 +45,12 @@
         </form>
     </div>
     <footer id="footer" class="footer">
-        <div>
-            <p>&copy; 2024 Rights reserved by <span id="logo">
-                    <'Jean' />
-                </span> </p>
-            <a href="#"> <i class="fa-solid fa-arrow-up"></i></a>
-        </div>
+
+        <p>&copy; 2024 Rights reserved by <span id="logo">
+                &LeftAngleBracket; Jean/&RightAngleBracket;
+            </span> </p>
+        <a href="#"> <i class="fa-solid fa-arrow-up"></i></a>
+
     </footer>
     <script src="./js/handleUpdate.js"></script>
     <script src="./js/navbar.js"></script>

@@ -12,7 +12,8 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/signup.css">
-    <!-- <link rel="stylesheet" href="/css/navbar_styles.css"> -->
+    <link rel="stylesheet" href="/css/nav.styles.css">
+    <link rel="stylesheet" href="/css/footer_styles.css">
 
 </head>
 
@@ -31,17 +32,26 @@
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
     <div class="signup__container" id="signup">
+        <div class="popup__message">
+        </div>
         <h2>Signup</h2>
         <form action="" id="signupForm">
-            <fieldset>
-                <legend>Full Name</legend>
-                <input type="text" placeholder="Your full Name" id="fullName" class="sign__input">
-            </fieldset>
+            <div class="first_last_name_container">
+                <fieldset>
+                    <legend>First Name</legend>
+                    <input type="text" placeholder="Your full Name" id="firstName" class="sign__input">
+                </fieldset>
+                <fieldset>
+                    <legend>Last Name</legend>
+                    <input type="text" placeholder="Your full Name" id="lastName" class="sign__input">
+                </fieldset>
+            </div>
+
             <fieldset>
                 <legend>
                     Email
                 </legend>
-                <input type="email" placeholder="Your email" id="signup_email" class="sign__input">
+                <input type="text" placeholder="Your email" id="signup_email" class="sign__input">
             </fieldset>
             <fieldset>
                 <legend>
@@ -51,13 +61,13 @@
                 <i id="showPassword" class="fa-solid fa-eye"></i>
 
             </fieldset>
-            <!-- <fieldset>
+            <fieldset>
                 <legend>
                     Confirm Password
                 </legend>
                 <input type="password" placeholder="Your password again" id="passwordConfirm" class="sign__input">
                 <i id="showPassword" class="fa-solid fa-eye"></i>
-            </fieldset> -->
+            </fieldset>
             <button type="submit">Sign Up</button>
         </form>
     </div>
