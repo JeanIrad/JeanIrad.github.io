@@ -10,9 +10,12 @@ const DB_LOCAL_TEST: string = process.env.DB_LOCAL_TEST!;
 const DB: string = process.env.DB!;
 
 mongoose
-  .connect(DB)
+  .connect(DB_LOCAL)
   .then(() => console.log("DB connected!"))
   .catch((e) => console.log("error!", e));
 
-const server = app;
+const server = app.listen(PORT, () =>
+  console.log(`app running on port ${PORT}... `)
+);
+console.log(process.env.NODE_ENV);
 export default server;

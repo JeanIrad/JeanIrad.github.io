@@ -33,6 +33,7 @@ const checkLoginPassword = async (
 export default class AuthController {
   static signup = catchAsync(
     async (req: Request, res: Response, next: NextFunction) => {
+      console.log(req.body);
       const { email, password, firstName, lastName, isAdmin } = req.body;
       const user = await User.findOne({ email });
       if (user)
@@ -60,7 +61,8 @@ export default class AuthController {
 
       res.status(201).json({
         status: "success",
-        data: sendUserData,
+        // data: sendUserData,
+        message: "user created succefuly!",
       });
     }
   );
@@ -68,11 +70,12 @@ export default class AuthController {
   static login = catchAsync(
     async (req: Request, res: Response, next: NextFunction) => {
       const { email, password } = req.body;
+      console.log(req.body);
       if (!email || !password)
         return next(new AppError("Please provide email and password", 400));
       const user = await User.findOne({ email }).select("+password");
       if (!user || !(await checkLoginPassword(password, user.password)))
-        return next(new AppError(`Please provide valid credentials!`, 401));
+        return next(new AppError(`Please provide valid credentials!`, 400));
       const token = JWTService.signToken(user.id);
       res.status(200).json({
         status: "success",

@@ -23,6 +23,7 @@ const blogSchema = new Schema({
     ref: "User",
     required: true,
   },
+  fileName: String,
 });
 const Blog = model("Blog", blogSchema);
 export default Blog;
