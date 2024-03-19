@@ -6,6 +6,7 @@ const body = document.body;
 const footer = document.querySelector("footer");
 const links = document.querySelectorAll("a");
 const fontAwesomeIcons = document.querySelectorAll("i");
+const paragraphs = document.querySelectorAll("p");
 
 bars.onclick = function () {
   navList.classList.toggle("open_nav");
@@ -24,12 +25,14 @@ toggleBg.onclick = function () {
     this.classList.add("fa-sun");
     links.forEach((link) => (link.style.color = "#dfe5e4"));
     fontAwesomeIcons.forEach((link) => (link.style.color = "#dfe5e4"));
+    paragraphs.forEach((link) => (link.style.color = "#dfe5e4"));
     footer.style.backgroundColor = "#000c24";
   } else {
     this.classList.remove("fa-sun");
     this.classList.add("fa-moon");
     links.forEach((link) => (link.style.color = "#000c24"));
     fontAwesomeIcons.forEach((link) => (link.style.color = "#000c24"));
+    paragraphs.forEach((link) => (link.style.color = "#000c24"));
     footer.style.backgroundColor = "#dfe5e4";
   }
 };
