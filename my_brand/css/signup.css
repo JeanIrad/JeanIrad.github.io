@@ -124,7 +124,63 @@ input:focus::placeholder {
     width: 100%;
   }
 }
-
+/* sing blog */
+.blog__container {
+  margin: 5rem auto;
+  display: flex;
+  margin-top: 5%;
+  flex-direction: column;
+  max-width: 90%;
+  padding: 0.5rem 0.5rem;
+  box-shadow: 1px 1px 1px #000c24;
+  gap: 1.5rem;
+}
+.blog__container img {
+  width: 100%;
+  height: auto;
+}
+.blog__container .blog__content p {
+  line-height: 150%;
+  margin-bottom: 0.5rem;
+}
+.commenters {
+  display: flex;
+  flex-direction: column;
+}
+.commenter__name__photo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 0.5rem;
+}
+.commenter__name__photo img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.commenters .comment {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+  margin-top: 1rem;
+}
+.commenters .comment p {
+  margin-bottom: 0.5rem;
+  line-height: 150%;
+  margin-left: 2rem;
+}
+.icons {
+  margin-left: 2rem;
+}
+.commenters .comment .icons span,
+.icons span i {
+  color: #d11559;
+  margin-right: 0.5rem;
+}
+#time__stamp {
+  align-self: flex-end;
+  color: #cfa511;
+}
 /* controlls nav var */
 @media screen and (width < 730px) {
   form {
