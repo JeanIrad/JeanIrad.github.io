@@ -5,14 +5,19 @@
   font-family: "Poppins", sans-serif;
   list-style: none;
   text-decoration: none;
-  color: #000c24;
 }
 html {
   scroll-behavior: smooth;
 }
 body {
+  color: #000c24;
   width: 100%;
   min-height: 100vh;
+  transition: background 0.5s ease-in-out;
+}
+.dark_mode {
+  background: #000c24;
+  color: #dfe5e4 !important;
 }
 
 /* nav styles */
@@ -58,6 +63,10 @@ nav ul li a:hover::after {
 }
 .fa-moon {
   font-size: 1.4rem;
+  cursor: pointer;
+}
+a {
+  color: #000c24;
 }
 
 @media screen and (width < 730px) {

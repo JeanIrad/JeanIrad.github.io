@@ -4,6 +4,8 @@ const navList = document.querySelector("nav ul");
 const navBar = document.querySelector("nav");
 const body = document.body;
 const footer = document.querySelector("footer");
+const links = document.querySelectorAll("a");
+const fontAwesomeIcons = document.querySelectorAll("i");
 
 bars.onclick = function () {
   navList.classList.toggle("open_nav");
@@ -16,27 +18,18 @@ bars.onclick = function () {
   }
 };
 toggleBg.onclick = function () {
-  // navBar.classList.toggle("light__mode");
-  footer.classList.toggle("light__mode");
-  if (body.className === "dark__mode" && this.classList.contains("fa-moon")) {
-    body.className = "light__mode";
+  body.classList.toggle("dark_mode");
+  if (this.classList.contains("fa-moon")) {
     this.classList.remove("fa-moon");
-    // navBar.classList.toggle("nav__light__mode");
-    navBar.className = "nav__light__mode";
     this.classList.add("fa-sun");
+    links.forEach((link) => (link.style.color = "#dfe5e4"));
+    fontAwesomeIcons.forEach((link) => (link.style.color = "#dfe5e4"));
+    footer.style.backgroundColor = "#000c24";
   } else {
     this.classList.remove("fa-sun");
     this.classList.add("fa-moon");
-    body.className = "dark__mode";
-    navBar.className = "nav__dark__mode";
+    links.forEach((link) => (link.style.color = "#000c24"));
+    fontAwesomeIcons.forEach((link) => (link.style.color = "#000c24"));
+    footer.style.backgroundColor = "#dfe5e4";
   }
-
-  console.log(this.className);
-  // document.querySelector("footer").classList.toggle("light-mode");
-  // this.classList.remove("fa-moon");
-  // this.classList.toggle("fa-sun");
-  // } else {
-  //   this.classList.remove("fa-sun");
-  //   this.classList.add("fa-moon");
-  // }
 };

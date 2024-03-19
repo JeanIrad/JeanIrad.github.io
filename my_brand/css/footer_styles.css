@@ -8,6 +8,7 @@ footer {
   font-size: 1.4rem;
   padding: 0.5rem 0;
   background-color: #dfe5e4;
+  transition: background 0.5s ease-in-out;
 }
 footer span {
   color: rgb(186, 194, 36);
