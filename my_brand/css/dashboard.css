@@ -125,7 +125,7 @@ h2 {
   outline: none;
   border: none;
   border-radius: 0.5rem;
-  background: #2d594d;
+  background: #2f098f;
 }
 .top__container form button {
   position: absolute;
@@ -136,7 +136,7 @@ h2 {
   font-size: 1rem;
 }
 .top__container form button i {
-  color: #4acf11;
+  color: #1121cf;
 }
 .top__container .dashboard__title {
   justify-self: flex-start;
@@ -193,17 +193,30 @@ h2 {
   border-radius: 0.5rem;
 }
 .blogs div:hover {
-  background: #217845;
+  background: rgb(44, 44, 142);
 }
-.blogs div span:first-child,
+/* .blogs div span:first-child,
 .blogs div span:nth-child(2n + 1) i {
   color: #151733;
   cursor: pointer;
+} */
+#editIcon i {
+  color: #151733;
+  cursor: pointer;
+}
+span[role="button"] {
+  transition: all 0.5s ease-in-out;
+}
+span[role="button"]:hover {
+  background: #ccc;
+  padding: 0.4rem;
+  border-radius: 0.2rem;
 }
 .blogs div span:last-child i {
   color: #d11559;
   cursor: pointer;
 }
+
 @media only screen and (width < 600px) {
   .nav__item a,
   .icon__container a {

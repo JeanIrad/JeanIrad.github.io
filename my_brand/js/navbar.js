@@ -20,12 +20,14 @@ bars.onclick = function () {
 };
 toggleBg.onclick = function () {
   body.classList.toggle("dark_mode");
+  navList.classList.toggle("dark_mode");
   if (this.classList.contains("fa-moon")) {
     this.classList.remove("fa-moon");
     this.classList.add("fa-sun");
     links.forEach((link) => (link.style.color = "#dfe5e4"));
     fontAwesomeIcons.forEach((link) => (link.style.color = "#dfe5e4"));
     paragraphs.forEach((link) => (link.style.color = "#dfe5e4"));
+    // navList.style.backgroundColor = "#000c24";
     footer.style.backgroundColor = "#000c24";
   } else {
     this.classList.remove("fa-sun");
@@ -34,5 +36,6 @@ toggleBg.onclick = function () {
     fontAwesomeIcons.forEach((link) => (link.style.color = "#000c24"));
     paragraphs.forEach((link) => (link.style.color = "#000c24"));
     footer.style.backgroundColor = "#dfe5e4";
+    // navList.style.backgroundColor = "#000c24";
   }
 };
