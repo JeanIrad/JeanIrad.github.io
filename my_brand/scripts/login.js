@@ -10,8 +10,31 @@ signupForm.onsubmit = async function (submitEvent) {
       popupMessage.textContent = "provide email and password";
       popupMessage.style.color = "brown";
       popupMessage.classList.add("show__popup");
+      setTimeout(function () {
+        popupMessage.classList.remove("show__popup");
+      }, 1500);
       return;
     }
+    const validateEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!validateEmail.test(email)) {
+      popupMessage.textContent = "provide a valid email";
+      popupMessage.style.color = "brown";
+      popupMessage.classList.add("show__popup");
+      setTimeout(function () {
+        popupMessage.classList.remove("show__popup");
+      }, 2000);
+      return;
+    }
+    if (password.length < 8) {
+      popupMessage.textContent = "provide a valid password";
+      popupMessage.style.color = "brown";
+      popupMessage.classList.add("show__popup");
+      setTimeout(function () {
+        popupMessage.classList.remove("show__popup");
+      }, 2000);
+      return;
+    }
+
     loader.style.display = "flex";
 
     const response = await fetch(
@@ -37,7 +60,7 @@ signupForm.onsubmit = async function (submitEvent) {
       popupMessage.style.color = "green";
       setTimeout(function () {
         window.location.href = "dashboard.html?login=true";
-      }, 3000);
+      }, 1000);
     } else {
       // console.log(await response.json())
       const { message } = await response.json();
@@ -49,7 +72,7 @@ signupForm.onsubmit = async function (submitEvent) {
 
       setTimeout(function () {
         popupMessage.classList.remove("show__popup");
-      }, 2000);
+      }, 1500);
     }
   } catch (err) {
     console.log(err);
