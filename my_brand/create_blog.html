@@ -29,14 +29,14 @@
     <!-- create and update -->
     <div class="main__container">
         <h2>Create a Blog</h2>
-        <form action="" id="createBlogForm">
+        <form id="createBlogForm">
             <fieldset>
                 <legend>
                     Blog Title
                 </legend>
-                <input type="text" placeholder="Blog Title" id="blogTitle">
+                <input type="text" placeholder="Blog Title" id="blogTitle" name="title">
             </fieldset>
-            <textarea name="content" id="blogContent" placeholder="Content"></textarea>
+            <textarea name="description" id="blogContent" placeholder="Content"></textarea>
             <div class="upload__image">
                 <label for="blogImage"> Upload Image <i class="fa-solid fa-upload"></i></label>
                 <input type="file" id="blogImage" accept=".jpg, .jpeg, .png">
@@ -53,84 +53,84 @@
 
     </footer>
 
-    <script src="./js/localStorage.js"></script>
+    <!-- <script src="./js/localStorage.js"></script> -->
     <script src="./js/navbar.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // login disappears
-            const loginItem = document.getElementById('login__item')
-            const isUserLogged = new URLSearchParams(window.location.search)
-            // console.log(isUserLogged.get('isloggedIn'))
-            const isLoggedIn = isUserLogged.get('isloggedIn')
-            if (isLoggedIn === 'true') {
-                loginItem.style.display = 'none'
-            } else {
-                loginItem.style.display = 'block'
-            }
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     // login disappears
+        //     const loginItem = document.getElementById('login__item')
+        //     const isUserLogged = new URLSearchParams(window.location.search)
+        //     // console.log(isUserLogged.get('isloggedIn'))
+        //     const isLoggedIn = isUserLogged.get('isloggedIn')
+        //     if (isLoggedIn === 'true') {
+        //         loginItem.style.display = 'none'
+        //     } else {
+        //         loginItem.style.display = 'block'
+        //     }
 
-            const title = document.getElementById('blogTitle')
-            const content = document.getElementById('blogContent')
-            const Image = document.getElementById('blogImage')
-            const fieldset = document.querySelector('fieldset')
-            const errorHTML = document.createElement('span')
-            errorHTML.style.color = '#fa4433'
-            errorHTML.style.marginTop = '-1rem'
+        //     const title = document.getElementById('blogTitle')
+        //     const content = document.getElementById('blogContent')
+        //     const Image = document.getElementById('blogImage')
+        //     const fieldset = document.querySelector('fieldset')
+        //     const errorHTML = document.createElement('span')
+        //     errorHTML.style.color = '#fa4433'
+        //     errorHTML.style.marginTop = '-1rem'
 
-            function validateInput(input, message) {
-                errorHTML.textContent = message
-                if (input.type === 'text') {
-                    input.oninput = function (e) {
-                        if (this.value.trim().length < 5) {
-                            fieldset.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                } else if (input.type === 'file') {
-                    input.onchange = function () {
-                        if (this.files.length === 0) {
-                            this.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                }
-                else {
-                    input.oninput = function (e) {
-                        if (this.value.trim().length < 50) {
-                            this.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                }
-            }
-            title.onfocus = function () {
-                return validateInput(this, 'Please Write A valid Blog title')
-            }
-            title.onblur = function () {
-                return validateInput(this, 'Please Write A valid Blog title')
-            }
-            content.onfocus = function () {
-                return validateInput(this, 'Please write enough content')
-            }
-            content.onblur = function () {
-                return validateInput(this, 'Please write content!')
-            }
-            Image.onfocus = function () {
-                return validateInput(this, 'Please provide an image')
-            }
+        //     function validateInput(input, message) {
+        //         errorHTML.textContent = message
+        //         if (input.type === 'text') {
+        //             input.oninput = function (e) {
+        //                 if (this.value.trim().length < 5) {
+        //                     fieldset.insertAdjacentElement('afterend', errorHTML)
+        //                     return false
+        //                 } else {
+        //                     errorHTML.style.display = 'none'
+        //                     return true
+        //                 }
+        //             }
+        //         } else if (input.type === 'file') {
+        //             input.onchange = function () {
+        //                 if (this.files.length === 0) {
+        //                     this.insertAdjacentElement('afterend', errorHTML)
+        //                     return false
+        //                 } else {
+        //                     errorHTML.style.display = 'none'
+        //                     return true
+        //                 }
+        //             }
+        //         }
+        //         else {
+        //             input.oninput = function (e) {
+        //                 if (this.value.trim().length < 50) {
+        //                     this.insertAdjacentElement('afterend', errorHTML)
+        //                     return false
+        //                 } else {
+        //                     errorHTML.style.display = 'none'
+        //                     return true
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     title.onfocus = function () {
+        //         return validateInput(this, 'Please Write A valid Blog title')
+        //     }
+        //     title.onblur = function () {
+        //         return validateInput(this, 'Please Write A valid Blog title')
+        //     }
+        //     content.onfocus = function () {
+        //         return validateInput(this, 'Please write enough content')
+        //     }
+        //     content.onblur = function () {
+        //         return validateInput(this, 'Please write content!')
+        //     }
+        //     Image.onfocus = function () {
+        //         return validateInput(this, 'Please provide an image')
+        //     }
 
-        })
+        // })
 
     </script>
-
+    <script src="./scripts/createBlog.js"></script>
 </body>
 
 </html>

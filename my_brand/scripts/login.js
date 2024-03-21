@@ -1,7 +1,7 @@
-const signupForm = document.getElementById("loginForm");
+const loginForm = document.getElementById("loginForm");
 const popupMessage = document.querySelector(".popup__message");
 
-signupForm.onsubmit = async function (submitEvent) {
+loginForm.onsubmit = async function (submitEvent) {
   try {
     const email = document.getElementById("login-email").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -14,17 +14,22 @@ signupForm.onsubmit = async function (submitEvent) {
       return;
     }
 
-    const response = await fetch("http://localhost:3000/api/v1/auth/login", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    const { message } = await response.json();
+    const response = await fetch(
+      "https://jadoiradukunda.onrender.com/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
     console.log(response.ok);
 
     if (response.ok) {
+      const { message, token } = await response.json();
+      localStorage.setItem("user", JSON.stringify({ email, password }));
+      localStorage.setItem("token", JSON.stringify(token));
       popupMessage.textContent = message;
       popupMessage.classList.add("show__popup");
       popupMessage.style.color = "green";
