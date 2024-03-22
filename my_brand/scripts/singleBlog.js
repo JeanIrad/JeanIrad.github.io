@@ -19,11 +19,34 @@ document.addEventListener("DOMContentLoaded", function () {
         const { blog } = await response.json();
         const { author, imageUrl, description, createdAt, title } = blog;
         //   await response.json();
-        console.log(blog);
+        console.log(typeof createdAt);
+        const createdTime = new Date(createdAt);
+        const timeDifferenceSecs = Math.floor(
+          (new Date() - createdTime) / 1000
+        );
+        const timeDifferenceMins = timeDifferenceSecs / 60;
+        const timeDifferenceHours = timeDifferenceSecs / 3600;
+        const timeDifferenceDays = timeDifferenceSecs / 216000;
+        // rendering time
+        timeDifferenceSecs < 60
+          ? (createdAtContainer.textContent += ` ${Math.round(
+              timeDifferenceSecs
+            )} secs ago`)
+          : timeDifferenceSecs < 3600
+          ? (createdAtContainer.textContent += ` ${Math.round(
+              timeDifferenceMins
+            )} mins ago`)
+          : timeDifferenceSecs < 3600 * 60
+          ? (createdAtContainer.textContent += ` ${Math.round(
+              timeDifferenceHours
+            )} hours ago`)
+          : (createdAtContainer.textContent += ` ${Math.round(
+              timeDifferenceDays
+            )} days ago`);
+        // console.log(blog);
         titleBlog.textContent = title;
         image.src = imageUrl;
         blogDescription.textContent = description;
-        createdAtContainer.textContent += ` ${createdAt}`;
         authorContainer.textContent += ` ${author.firstName}  ${author.lastName}`;
       }
     } catch (err) {
