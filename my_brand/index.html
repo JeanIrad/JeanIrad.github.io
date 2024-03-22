@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/nav.styles.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
-    <script src="scripts/displayBlogs.js" defer></script>
+    <link rel="stylesheet" href="./css/loader.css">
 </head>
 
 <body>
@@ -22,10 +22,13 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#blogs">Blogs</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li id="login__item"><a href="login.html" class="active">Login</a></li>
+            <li id="login__item" class="logout"><a href="login.html" class="active">Login</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
+    <div class="loader_container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
     <!-- Main Home view -->
     <section class="main-home-container">
         <div class="social-icons">
@@ -176,7 +179,7 @@
     <!-- blogs -->
     <h2 class="blog-title">Blogs</h2>
     <section id="blogs" class="blogs">
-        <div class="blog__container">
+        <!-- <div class="blog__container">
             <div class="image">
                 <img src="./images/andela/andela.png" alt="andela logo">
                 <h4>Crafting Tomorrow's Tech Leaders: My Journey through the Andela Technical Leadership Program (ATLP).
@@ -210,13 +213,14 @@
         <div class="blog__container">
             <div class="image">
                 <img src="./images/mine/blogs/image3.png" alt="blog Image">
-                <h4>blog Title</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis libero vitae harum! Voluptatem,
-                    quod voluptates quaerat iste fuga voluptate minus aperiam delectus amet natus placeat laborum est,
-                    distinctio iure deserunt!</p>
             </div>
+            <h4>blog Title</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis libero vitae harum! Voluptatem,
+                quod voluptates quaerat iste fuga voluptate minus aperiam delectus amet natus placeat laborum est,
+                distinctio iure deserunt!</p>
+
             <a href="single_blog.html">read More</a>
-        </div>
+        </div> -->
     </section>
     <!-- Contact section -->
     <section class="contact" id="contact">
@@ -274,25 +278,28 @@
     <script src="./js/navbar.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/formValidation.js"></script>
-    <script src="./js/blogsLandingPage.js"></script>
+    <script src="./scripts/displayBlogs.js"></script>
     <script src="./js/handleMessages.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const loginItem = document.getElementById('login__item')
-            const isUserLogged = new URLSearchParams(window.location.search)
-            const isLoggedIn = isUserLogged.get('isLoggedIn')
-            console.log(isLoggedIn)
-            if (isLoggedIn === 'true') {
-                loginItem.style.display = 'none'
-            } else {
-                loginItem.style.display = 'block'
-            }
 
-        })
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const loginItem = document.getElementById('login__item')
+        //     const isUserLogged = new URLSearchParams(window.location.search)
+        //     const isLoggedIn = isUserLogged.get('isLoggedIn')
+        //     const token = JSON.parse(localStorage.getItem('token'))
+        //     console.log(isLoggedIn)
+        //     if (token) {
+        //         loginItem.style.display = 'none'
+        //     } else {
+        //         loginItem.style.display = 'block'
+        //     }
+
+        // })
 
     </script>
-    <script src="./scripts/getBlogs.js" defer></script>
+    <script src="./scripts/checkLogin.js"></script>
+    <script src="./scripts/logout.js"></script>
 
 </body>
 

@@ -7,10 +7,13 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/dashboard.css">
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="./css/loader.css">
 </head>
 
 <body>
+    <div class="loader_container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
     <div class="delete__popup">
         <div>
             <p>Are you sure you want to delete </p>
@@ -48,7 +51,7 @@
                 <a href="settings.html"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
             </div>
             <div class="icon__container">
-                <a href="index.html?logout=true"> <i
+                <a class="logout" href="index.html?logout=true"> <i
                         class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</span></a>
             </div>
         </div>
@@ -101,42 +104,13 @@
         <div class="blogs__container">
             <h2>Blogs</h2>
             <div class="blogs">
-                <!-- <div class="blog">
-                    <span>01</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div>
-                <div class="blog">
-                    <span>02</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div>
-                <div class="blog">
-                    <span>03</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div>
-                <div class="blog">
-                    <span>04</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div>
-                <div class="blog">
-                    <span>05</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div>
-                <div class="blog">
-                    <span>06</span> <span>blog Name</span> <span role="button"><i
-                            class="fa-solid fa-pen"></i></span><span role="button"><i
-                            class="fa-solid fa-trash"></i></span>
-                </div> -->
+
             </div>
         </div>
     </div>
 
     <!-- <script src="./js/displayBlog.js"></script> -->
-    <!-- <script src="./js/sideBar.js"></script> -->
+    <script src="./scripts/logout.js"></script>
     <script src="./scripts/addBlogsToDashboard.js"></script>
 </body>
 

@@ -50,19 +50,23 @@ signupForm.onsubmit = async function (submitEvent) {
     console.log(response.ok);
 
     if (response.ok) {
-      const { message, token, id } = await response.json();
-      localStorage.setItem("user", JSON.stringify({ email, password, id }));
+      const { message, token, id, isAdmin } = await response.json();
+      localStorage.setItem("user", JSON.stringify({ email, id }));
       localStorage.setItem("token", JSON.stringify(token));
       popupMessage.textContent = message;
 
       popupMessage.classList.add("show__popup");
       loader.style.display = "none";
       popupMessage.style.color = "green";
+      if (!isAdmin) {
+        setTimeout(function () {
+          return window.location.assign("index.html");
+        }, 1400);
+      }
       setTimeout(function () {
         window.location.href = "dashboard.html?login=true";
       }, 1000);
     } else {
-      // console.log(await response.json())
       const { message } = await response.json();
       loader.style.display = "none";
       popupMessage.textContent = message || "error";

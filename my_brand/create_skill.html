@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/nav.styles.css">
     <link rel="stylesheet" href="./css/update_blog.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
 
 </head>
 
@@ -22,10 +23,13 @@
             <li><a href="index.html#portfolio">Portfolio</a></li>
             <li><a href="index.html#blogs">Blogs</a></li>
             <li><a href="index.html#contact">Contact</a></li>
-            <li id="login__item"><a href="login.html" class="active">Login</a></li>
+            <li id="login__item" class="logout"><a href="login.html" class="active">Login</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
+    <div class="loader_container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
     <div class="main__container">
         <h2>Add Skill</h2>
         <form action="" id="createBlogForm">
@@ -129,6 +133,7 @@
         })
 
     </script>
+    <script src="./scripts/checkLogin.js"></script>
 
 </body>
 

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./css/nav.styles.css">
     <link rel="stylesheet" href="./css/update_blog.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/popup.css">
+
 
 </head>
 
@@ -22,10 +25,15 @@
             <li><a href="index.html#portfolio">Portfolio</a></li>
             <li><a href="index.html#blogs">Blogs</a></li>
             <li><a href="index.html#contact">Contact</a></li>
-            <li id="login__item"><a href="login.html" class="active">Login</a></li>
+            <li id="login__item" class="logout"><a href="login.html" class="active">Login</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
+    <div class="popup__message">
+    </div>
+    <div class="loader_container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
     <!-- create and update -->
     <div class="main__container">
         <h2>Create a Blog</h2>
@@ -55,81 +63,7 @@
 
     <!-- <script src="./js/localStorage.js"></script> -->
     <script src="./js/navbar.js"></script>
-    <script>
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     // login disappears
-        //     const loginItem = document.getElementById('login__item')
-        //     const isUserLogged = new URLSearchParams(window.location.search)
-        //     // console.log(isUserLogged.get('isloggedIn'))
-        //     const isLoggedIn = isUserLogged.get('isloggedIn')
-        //     if (isLoggedIn === 'true') {
-        //         loginItem.style.display = 'none'
-        //     } else {
-        //         loginItem.style.display = 'block'
-        //     }
-
-        //     const title = document.getElementById('blogTitle')
-        //     const content = document.getElementById('blogContent')
-        //     const Image = document.getElementById('blogImage')
-        //     const fieldset = document.querySelector('fieldset')
-        //     const errorHTML = document.createElement('span')
-        //     errorHTML.style.color = '#fa4433'
-        //     errorHTML.style.marginTop = '-1rem'
-
-        //     function validateInput(input, message) {
-        //         errorHTML.textContent = message
-        //         if (input.type === 'text') {
-        //             input.oninput = function (e) {
-        //                 if (this.value.trim().length < 5) {
-        //                     fieldset.insertAdjacentElement('afterend', errorHTML)
-        //                     return false
-        //                 } else {
-        //                     errorHTML.style.display = 'none'
-        //                     return true
-        //                 }
-        //             }
-        //         } else if (input.type === 'file') {
-        //             input.onchange = function () {
-        //                 if (this.files.length === 0) {
-        //                     this.insertAdjacentElement('afterend', errorHTML)
-        //                     return false
-        //                 } else {
-        //                     errorHTML.style.display = 'none'
-        //                     return true
-        //                 }
-        //             }
-        //         }
-        //         else {
-        //             input.oninput = function (e) {
-        //                 if (this.value.trim().length < 50) {
-        //                     this.insertAdjacentElement('afterend', errorHTML)
-        //                     return false
-        //                 } else {
-        //                     errorHTML.style.display = 'none'
-        //                     return true
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     title.onfocus = function () {
-        //         return validateInput(this, 'Please Write A valid Blog title')
-        //     }
-        //     title.onblur = function () {
-        //         return validateInput(this, 'Please Write A valid Blog title')
-        //     }
-        //     content.onfocus = function () {
-        //         return validateInput(this, 'Please write enough content')
-        //     }
-        //     content.onblur = function () {
-        //         return validateInput(this, 'Please write content!')
-        //     }
-        //     Image.onfocus = function () {
-        //         return validateInput(this, 'Please provide an image')
-        //     }
-
-        // })
-
-    </script>
+    <script src="./scripts/checkLogin.js"></script>
     <script src="./scripts/createBlog.js"></script>
 </body>
 

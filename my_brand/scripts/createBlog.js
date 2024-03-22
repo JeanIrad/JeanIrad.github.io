@@ -1,85 +1,64 @@
 document.addEventListener("DOMContentLoaded", function () {
   const query = new URLSearchParams(window.location.search);
-  // console.log(query.get("isloggedIn"));
   const createBlogForm = document.getElementById("createBlogForm");
-  // createBlogForm.addEventListener("submit", async function (event) {
-  //   event.preventDefault();
-  //   const title = document.getElementById("blogTitle").value;
-  //   const description = document.getElementById("blogContent").value;
-  //   const image = document.getElementById("blogImage");
-  //   const formData = new FormData();
-  //   formData.append("title", title);
-  //   formData.append("description", description);
-  //   formData.append("image", image.files[0]);
-  //   console.log(...formData);
-  //   try {
-  //     if (!query.get("isloggedIn")) {
-  //       throw new Error("You must log in");
-  //       return;
-  //     } else {
-  //       const token =
-  //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjMxZWM2Mjc1MDM5YzEzMjhkODI5MSIsImlhdCI6MTcxMDg2OTc3MCwiZXhwIjoxNzExNzMzNzcwfQ.k2KslWT-ZkiPxm417bzbXvIhPeBYdhlP0MjrNq2TZQY";
-  //       const response = await fetch("http://localhost:3000/api/v1/blogs", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //         body: formData,
-  //       });
-  //       console.log(response);
-  //       // const data = await response.json();
-  //       // console.log(data.body);
-  //     }
-  //   } catch (err) {
-  //     console.log("error creating a blog", err);
-  //     throw err;
-  //   }
-  // });
-  class BlogManager {
-    static createBlog = async (data, token) => {
-      console.log(...formData);
+  const loader = document.getElementById("loaderContainer");
+  const popupMessage = document.querySelector(".popup__message");
+
+  createBlogForm.addEventListener("submit", async function (event) {
+    try {
+      event.preventDefault();
+      if (!query.get("isloggedIn")) {
+        throw new Error("You must login first");
+        return;
+      }
+      const title = document.getElementById("blogTitle").value;
+      const description = document.getElementById("blogContent").value;
+      const image = document.getElementById("blogImage");
+      const user = JSON.parse(localStorage.getItem("user")) || {};
+      if (!user) throw new Error("No user found!");
+      const userId = user.id;
+      if (!userId) throw new Error("no id found");
+      loader.style.display = "flex";
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("image", image.files[0]);
+      formData.append("author", userId);
+
+      // console.log(...formData);
+      const token = JSON.parse(localStorage.getItem("token")) ?? undefined;
       const response = await fetch(
         "https://jadoiradukunda.onrender.com/api/blogs",
         {
           method: "POST",
           headers: {
-            "x-auth-token": token,
+            // "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
           },
-          body: data,
+          body: formData,
         }
       );
-      return response;
-    };
-  }
-
-  createBlogForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const title = document.getElementById("blogTitle").value;
-    const description = document.getElementById("blogContent").value;
-    const image = document.getElementById("blogImage");
-
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("image", image.files[0]);
-    formData.append("author", "65e75566df56c5a914155a88");
-
-    try {
-      // console.log(...formData);
-      const token = JSON.parse(localStorage.getItem("token")) ?? undefined;
-      const response = await fetch("http://localhost:3000/api/blogs", {
-        method: "POST",
-        headers: {
-          // "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
       console.log(response.ok);
+      if (response.ok) {
+        title.value = "";
+        description.value = "";
+        popupMessage.textContent = "blog created successfully!";
+        popupMessage.style.color = "green";
+        popupMessage.classList.add("show__popup");
+        setTimeout(function () {
+          popupMessage.classList.remove("show__popup");
+        }, 1500);
+        loader.style.display = "none";
+      }
       console.log(await response.json());
     } catch (err) {
+      popupMessage.textContent = "error creating blog!";
+      popupMessage.style.color = "brown";
+      popupMessage.classList.add("show__popup");
+      setTimeout(function () {
+        popupMessage.classList.remove("show__popup");
+      }, 1500);
+
       console.log("error ", err);
     }
   });

@@ -1,0 +1,14 @@
+.blog__features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.author {
+  display: flex;
+  gap: 2rem;
+}
+textarea {
+  height: 3.5rem;
+  padding: 1rem;
+  outline: none;
+}

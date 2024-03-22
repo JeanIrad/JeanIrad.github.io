@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/signup.css">
     <link rel="stylesheet" href="./css/nav.styles.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
             <li><a href="index.html#portfolio">Portfolio</a></li>
             <li><a href="index.html#blogs">Blogs</a></li>
             <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="login.html" class="active">Login</a></li>
+            <li id="login__item" class="logout"><a href="login.html" class="active">Login</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
@@ -95,7 +96,10 @@
             }
         })
     </script>
+
+    <script src="./scripts/checkLogin.js"></script>
     <script src="./scripts/login.js"></script>
+
 </body>
 
 </html>
