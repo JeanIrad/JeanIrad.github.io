@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const returnedData = await response.json();
       if (response.ok) {
         const { data } = returnedData;
+        // <p>${blog.description.slice(0, 40)}...</p>
         if (data.length > 0) {
           data.forEach((blog) => {
             const container = document.createElement("div");
@@ -17,7 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${blog.imageUrl}" alt="blog Image">
           </div>
           <h4>${blog.title}</h4>
-          <p>${blog.description.slice(0, 40)}...</p>
+          ${
+            blog.description.length > 40
+              ? blog.description.slice(0, 40) + "..."
+              : blog.description
+          }
       
       <a href="single_blog.html?id=${blog._id}">read More</a>`;
             blogsContainer.append(container);
@@ -26,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
           blogsContainer.innerHTML = "<h1>No Blog created yet!</h1>";
         }
       } else {
-        blogsContainer.innerHTML = "<h1>No Blog created yet!</h1>";
+        throw new Error("error fetching blogs");
       }
     } catch (err) {
       console.log("error fetching blogs", err);

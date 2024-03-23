@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const timeDifferenceMins = timeDifferenceSecs / 60;
         const timeDifferenceHours = timeDifferenceSecs / 3600;
-        const timeDifferenceDays = timeDifferenceSecs / 216000;
+        const timeDifferenceDays = timeDifferenceSecs / 86400;
         // rendering time
         timeDifferenceSecs < 60
           ? (createdAtContainer.textContent += ` ${Math.round(
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
           ? (createdAtContainer.textContent += ` ${Math.round(
               timeDifferenceMins
             )} mins ago`)
-          : timeDifferenceSecs < 3600 * 60
+          : timeDifferenceSecs < 86400
           ? (createdAtContainer.textContent += ` ${Math.round(
               timeDifferenceHours
             )} hours ago`)
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // console.log(blog);
         titleBlog.textContent = title;
         image.src = imageUrl;
-        blogDescription.textContent = description;
+        blogDescription.innerHTML = description;
         authorContainer.textContent += ` ${author.firstName}  ${author.lastName}`;
       }
     } catch (err) {

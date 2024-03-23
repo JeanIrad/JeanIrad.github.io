@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="./css/popup.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
 
+    <!-- floara editor plugins -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.6/css/froala_editor.pkgd.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.6/css/froala_style.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.6/js/froala_editor.pkgd.min.js"></script>
+
 </head>
 
 <body>
@@ -40,7 +46,7 @@
                 </legend>
                 <input type="text" placeholder="Portfolio Title">
             </fieldset>
-            <textarea name="content" id="blogContent" placeholder="Content"></textarea>
+            <textarea name="content" id="editor" placeholder="Content"></textarea>
             <div class="upload__image">
                 <label for="blogImage"> Upload Image <i class="fa-solid fa-upload"></i></label>
                 <input type="file" id="blogImage" accept=".jpg, .jpeg, .png">
@@ -59,80 +65,12 @@
 
     <script src="./js/localStorage.js"></script>
     <script src="./js/navbar.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // login disappears
-            const loginItem = document.getElementById('login__item')
-            const isUserLogged = new URLSearchParams(window.location.search)
-            // console.log(isUserLogged.get('isloggedIn'))
-            const isLoggedIn = isUserLogged.get('isloggedIn')
-            if (isLoggedIn === 'true') {
-                loginItem.style.display = 'none'
-            } else {
-                loginItem.style.display = 'block'
-            }
-
-            const title = document.getElementById('blogTitle')
-            const content = document.getElementById('blogContent')
-            const Image = document.getElementById('blogImage')
-            const fieldset = document.querySelector('fieldset')
-            const errorHTML = document.createElement('span')
-            errorHTML.style.color = '#fa4433'
-            errorHTML.style.marginTop = '-1rem'
-
-            function validateInput(input, message) {
-                errorHTML.textContent = message
-                if (input.type === 'text') {
-                    input.oninput = function (e) {
-                        if (this.value.trim().length < 5) {
-                            fieldset.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                } else if (input.type === 'file') {
-                    input.onchange = function () {
-                        if (this.files.length === 0) {
-                            this.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                }
-                else {
-                    input.oninput = function (e) {
-                        if (this.value.trim().length < 50) {
-                            this.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                }
-            }
-            title.onfocus = function () {
-                return validateInput(this, 'Please Write A valid Blog title')
-            }
-            title.onblur = function () {
-                return validateInput(this, 'Please Write A valid Blog title')
-            }
-            content.onfocus = function () {
-                return validateInput(this, 'Please write enough content')
-            }
-            content.onblur = function () {
-                return validateInput(this, 'Please write content!')
-            }
-            Image.onfocus = function () {
-                return validateInput(this, 'Please provide an image')
-            }
-
-        })
-
+        const editor = new FroalaEditor('#editor');
+        document.querySelector('button').addEventListener('click', () => {
+            console.log(editor.html.get());
+        });
     </script>
 
 </body>

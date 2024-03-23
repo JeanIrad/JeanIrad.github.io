@@ -1,4 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+  tinymce.init({
+    selector: "textarea",
+    plugins:
+      "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown",
+    toolbar:
+      "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+    tinycomments_mode: "embedded",
+    tinycomments_author: "Author name",
+    mergetags_list: [
+      { value: "First.Name", title: "First Name" },
+      { value: "Email", title: "Email" },
+    ],
+    ai_request: (request, respondWith) =>
+      respondWith.string(() =>
+        Promise.reject("See docs to implement AI Assistant")
+      ),
+  });
+
   const query = new URLSearchParams(window.location.search);
   const createBlogForm = document.getElementById("createBlogForm");
   const loader = document.getElementById("loaderContainer");
@@ -11,20 +29,21 @@ document.addEventListener("DOMContentLoaded", function () {
         throw new Error("You must login first");
         return;
       }
-      const title = document.getElementById("blogTitle").value;
-      const description = document.getElementById("blogContent").value;
+      let title = document.getElementById("blogTitle").value;
+      // const description = document.getElementById("blogContent").value;
+      const description = tinymce.get("blogContent").getContent();
       const image = document.getElementById("blogImage");
       const user = JSON.parse(localStorage.getItem("user")) || {};
       if (!user) throw new Error("No user found!");
       const userId = user.id;
       if (!userId) throw new Error("no id found");
       loader.style.display = "flex";
+      // must implement, handling some cases where we have an internal server error
       const formData = new FormData();
       formData.append("title", title);
       formData.append("description", description);
       formData.append("image", image.files[0]);
       formData.append("author", userId);
-
       // console.log(...formData);
       const token = JSON.parse(localStorage.getItem("token")) ?? undefined;
       const response = await fetch(
@@ -32,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           method: "POST",
           headers: {
-            // "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
           },
           body: formData,
@@ -40,8 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       console.log(response.ok);
       if (response.ok) {
-        title.value = "";
-        description.value = "";
+        title = "";
+        // description.value = "";
+        tinymce.get("blogContent").setContent("");
         popupMessage.textContent = "blog created successfully!";
         popupMessage.style.color = "green";
         popupMessage.classList.add("show__popup");

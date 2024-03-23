@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="./css/update_blog.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
     <link rel="stylesheet" href="./css/loader.css">
-
+    <link rel="stylesheet" href="./css/popup.css">
+    <!-- Tnycme snipet pluggins -->
+    <script src="https://cdn.tiny.cloud/1/vwg67b4wvdac3bpzcx9uw2h719ax30axkf26j6ra8d3z2oda/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -59,79 +62,91 @@
     <script src="./js/localStorage.js"></script>
     <script src="./js/navbar.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // login disappears
-            const loginItem = document.getElementById('login__item')
-            const isUserLogged = new URLSearchParams(window.location.search)
-            // console.log(isUserLogged.get('isloggedIn'))
-            const isLoggedIn = isUserLogged.get('isloggedIn')
-            if (isLoggedIn === 'true') {
-                loginItem.style.display = 'none'
-            } else {
-                loginItem.style.display = 'block'
-            }
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     // login disappears
+        //     const loginItem = document.getElementById('login__item')
+        //     const isUserLogged = new URLSearchParams(window.location.search)
+        //     // console.log(isUserLogged.get('isloggedIn'))
+        //     const isLoggedIn = isUserLogged.get('isloggedIn')
+        //     if (isLoggedIn === 'true') {
+        //         loginItem.style.display = 'none'
+        //     } else {
+        //         loginItem.style.display = 'block'
+        //     }
 
-            const title = document.getElementById('blogTitle')
-            const content = document.getElementById('blogContent')
-            const Image = document.getElementById('blogImage')
-            const fieldset = document.querySelector('fieldset')
-            const errorHTML = document.createElement('span')
-            errorHTML.style.color = '#fa4433'
-            errorHTML.style.marginTop = '-1rem'
+        //     const title = document.getElementById('blogTitle')
+        //     const content = document.getElementById('blogContent')
+        //     const Image = document.getElementById('blogImage')
+        //     const fieldset = document.querySelector('fieldset')
+        //     const errorHTML = document.createElement('span')
+        //     errorHTML.style.color = '#fa4433'
+        //     errorHTML.style.marginTop = '-1rem'
 
-            function validateInput(input, message) {
-                errorHTML.textContent = message
-                if (input.type === 'text') {
-                    input.oninput = function (e) {
-                        if (this.value.trim().length < 5) {
-                            fieldset.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                } else if (input.type === 'file') {
-                    input.onchange = function () {
-                        if (this.files.length === 0) {
-                            this.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                }
-                else {
-                    input.oninput = function (e) {
-                        if (this.value.trim().length < 50) {
-                            this.insertAdjacentElement('afterend', errorHTML)
-                            return false
-                        } else {
-                            errorHTML.style.display = 'none'
-                            return true
-                        }
-                    }
-                }
-            }
-            title.onfocus = function () {
-                return validateInput(this, 'Please Write A valid Blog title')
-            }
-            title.onblur = function () {
-                return validateInput(this, 'Please Write A valid Blog title')
-            }
-            content.onfocus = function () {
-                return validateInput(this, 'Please write enough content')
-            }
-            content.onblur = function () {
-                return validateInput(this, 'Please write content!')
-            }
-            Image.onfocus = function () {
-                return validateInput(this, 'Please provide an image')
-            }
+        //     function validateInput(input, message) {
+        //         errorHTML.textContent = message
+        //         if (input.type === 'text') {
+        //             input.oninput = function (e) {
+        //                 if (this.value.trim().length < 5) {
+        //                     fieldset.insertAdjacentElement('afterend', errorHTML)
+        //                     return false
+        //                 } else {
+        //                     errorHTML.style.display = 'none'
+        //                     return true
+        //                 }
+        //             }
+        //         } else if (input.type === 'file') {
+        //             input.onchange = function () {
+        //                 if (this.files.length === 0) {
+        //                     this.insertAdjacentElement('afterend', errorHTML)
+        //                     return false
+        //                 } else {
+        //                     errorHTML.style.display = 'none'
+        //                     return true
+        //                 }
+        //             }
+        //         }
+        //         else {
+        //             input.oninput = function (e) {
+        //                 if (this.value.trim().length < 50) {
+        //                     this.insertAdjacentElement('afterend', errorHTML)
+        //                     return false
+        //                 } else {
+        //                     errorHTML.style.display = 'none'
+        //                     return true
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     title.onfocus = function () {
+        //         return validateInput(this, 'Please Write A valid Blog title')
+        //     }
+        //     title.onblur = function () {
+        //         return validateInput(this, 'Please Write A valid Blog title')
+        //     }
+        //     content.onfocus = function () {
+        //         return validateInput(this, 'Please write enough content')
+        //     }
+        //     content.onblur = function () {
+        //         return validateInput(this, 'Please write content!')
+        //     }
+        //     Image.onfocus = function () {
+        //         return validateInput(this, 'Please provide an image')
+        //     }
 
-        })
+        // })
 
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
     </script>
     <script src="./scripts/checkLogin.js"></script>
 
