@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/user_dashboard.css">
+    <link rel="stylesheet" href="./css/nav.styles.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/popup.css">
+    <script src="https://cdn.tiny.cloud/1/vwg67b4wvdac3bpzcx9uw2h719ax30axkf26j6ra8d3z2oda/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+</head>
+
+<body>
+    <nav>
+        <i class="fa-solid fa-moon" id="toggle-bg"></i>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li id="login__item" class="logout"><a href="login.html" class="active">Login</a></li>
+        </ul>
+        <i class="fa-solid fa-bars" id="bars"></i>
+    </nav>
+
+    <div class="container">
+        <aside>
+            <div id="messages"><span>Messages</span><i class="fa-solid fa-bell"></i> </div>
+            <div id="comments"><span>Comments</span><i class="fa-solid fa-comment"></i> </div>
+            <div id="blog"><span>Blogs</span><i class="fa-solid fa-newspaper"></i></div>
+            <!-- Dashboard statistics and charts can be added here -->
+        </aside>
+
+        <main>
+            <h2>Welcome userName</h2>
+            <div class="wrapper">
+                <div id="comments">
+                    <h2>Comments <i class="fa-solid fa-comment"></i></h2>
+                    <!-- List of comments goes here -->
+                </div>
+
+                <div id="messages">
+                    <h2>Messages <i class="fa-solid fa-bell"></i> </h2>
+                    <!-- List of messages goes here -->
+                </div>
+
+                <div id="blogs">
+                    <h2>Blogs <i class="fa-solid fa-newspaper"></i></h2>
+
+                </div>
+            </div>
+            <div class="lists">
+                <div class="blogs">
+                    <h2>My Blogs</h2>
+                    <ul>
+                        <li><a href="#">Blog 1</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                        <li><a href="#">Blog 2</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                        <li><a href="#">Blog 3</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="messages">
+                    <h2>My Messages</h2>
+                    <ul>
+                        <li><a href="#">Message 1</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                        <li><a href="#">Message 2</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                        <li><a href="#">Message 3</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h2>My Comments</h2>
+                    <ul>
+                        <li><a href="#">Comment 1</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                        <li><a href="#">Comment 2</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                        <li><a href="#">Comment 3</a> <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="updateForm">
+                <h2>Update Blog</h2>
+                <form action="">
+                    <label for="title">Update Blog</label>
+                    <input type="text" placeholder="Title" id="title">
+                    <textarea name="update" id="update" cols="30" rows="10"></textarea>
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="./js/navbar.js"></script>
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            plugins:
+                "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown",
+            toolbar:
+                "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+            tinycomments_mode: "embedded",
+            tinycomments_author: "Author name",
+            mergetags_list: [
+                { value: "First.Name", title: "First Name" },
+                { value: "Email", title: "Email" },
+            ],
+            ai_request: (request, respondWith) =>
+                respondWith.string(() =>
+                    Promise.reject("See docs to implement AI Assistant")
+                ),
+        });
+    </script>
+</body>
+
+</html>

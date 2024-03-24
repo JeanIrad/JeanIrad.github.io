@@ -60,11 +60,11 @@ signupForm.onsubmit = async function (submitEvent) {
       popupMessage.style.color = "green";
       if (!isAdmin) {
         setTimeout(function () {
-          return window.location.assign("index.html");
+          return window.location.assign("userDashboard.html");
         }, 1400);
       }
       setTimeout(function () {
-        window.location.href = "dashboard.html?login=true";
+        window.location.assign("dashboard.html?login=true");
       }, 1000);
     } else {
       const { message } = await response.json();
