@@ -406,4 +406,7 @@ h2 {
   .contact__container .contact__form form button {
     margin-top: 0;
   }
+  .my__contacts ul {
+    width: 100%;
+  }
 }
