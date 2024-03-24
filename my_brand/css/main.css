@@ -249,6 +249,7 @@ h2 {
   width: 100%;
   margin-top: 10%;
   margin-bottom: 5rem;
+  position: relative;
 }
 .contact__container {
   display: flex;

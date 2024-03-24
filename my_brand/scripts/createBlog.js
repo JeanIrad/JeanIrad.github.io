@@ -29,22 +29,31 @@ document.addEventListener("DOMContentLoaded", function () {
         throw new Error("You must login first");
         return;
       }
-      let title = document.getElementById("blogTitle").value;
-      // const description = document.getElementById("blogContent").value;
+      let title = document.getElementById("blogTitle");
       const description = tinymce.get("blogContent").getContent();
       const image = document.getElementById("blogImage");
       const user = JSON.parse(localStorage.getItem("user")) || {};
       if (!user) throw new Error("No user found!");
       const userId = user.id;
       if (!userId) throw new Error("no id found");
+      if (!title.value.trim() || !description.trim()) {
+        popupMessage.textContent = "Title and description are required!";
+        popupMessage.style.color = "brown";
+        popupMessage.classList.add("show__popup");
+        setTimeout(function () {
+          popupMessage.classList.remove("show__popup");
+        }, 1500);
+        // throw new Error("Title and description are required");
+        return;
+      }
       loader.style.display = "flex";
       // must implement, handling some cases where we have an internal server error
       const formData = new FormData();
-      formData.append("title", title);
+      formData.append("title", title.value);
       formData.append("description", description);
-      formData.append("image", image.files[0]);
       formData.append("author", userId);
-      // console.log(...formData);
+      image.files.length > 0 && formData.append("image", image.files[0]);
+      console.log(...formData);
       const token = JSON.parse(localStorage.getItem("token")) ?? undefined;
       const response = await fetch(
         "https://jadoiradukunda.onrender.com/api/blogs",

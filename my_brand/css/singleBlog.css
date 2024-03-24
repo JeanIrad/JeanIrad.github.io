@@ -7,6 +7,9 @@
   display: flex;
   gap: 2rem;
 }
+#author {
+  font-weight: 600;
+}
 textarea {
   height: 3.5rem;
   padding: 1rem;

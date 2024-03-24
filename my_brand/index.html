@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/footer_styles.css">
     <script src="https://kit.fontawesome.com/79b8b085c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/popup.css">
 </head>
 
 <body>
@@ -26,6 +27,7 @@
         </ul>
         <i class="fa-solid fa-bars" id="bars"></i>
     </nav>
+
     <div class="loader_container" id="loaderContainer">
         <div class="loader"></div>
     </div>
@@ -104,6 +106,8 @@
             <h4>Reactjs</h4>
             <div class="wrapper">
                 <img src="./images/logo/react.png" alt="">
+                <!-- <img src="./images/logo/react.png" alt=""> -->
+                <!-- <object data="./images/logo/svgs/cdnlogo.com_.svg" type=""></object> -->
             </div>
         </div>
         <div>
@@ -179,51 +183,13 @@
     <!-- blogs -->
     <h2 class="blog-title">Blogs</h2>
     <section id="blogs" class="blogs">
-        <!-- <div class="blog__container">
-            <div class="image">
-                <img src="./images/andela/andela.png" alt="andela logo">
-                <h4>Crafting Tomorrow's Tech Leaders: My Journey through the Andela Technical Leadership Program (ATLP).
-                </h4>
-                <p> In just two short months of Andela technical leadership program , I have traversed through a
-                    landscape of learning, growth, and self-discovery that has reshaped my perspective on both technical
-                    prowess and leadership acumen</p>
-            </div>
-            <a href="single_blog.html">read More</a>
-        </div>
-        <div class="blog__container">
-            <div class="image">
-                <img src="./images/mine/blogs/image3.png" alt="blog Image">
-                <h4>blog Title</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis libero vitae harum! Voluptatem,
-                    quod voluptates quaerat iste fuga voluptate minus aperiam delectus amet natus placeat laborum est,
-                    distinctio iure deserunt!</p>
-            </div>
-            <a href="single_blog.html">read More</a>
-        </div>
-        <div class="blog__container">
-            <div class="image">
-                <img src="./images/mine/blogs/image1.png" alt="blog Image">
-                <h4>blog Title</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis libero vitae harum! Voluptatem,
-                    quod voluptates quaerat iste fuga voluptate minus aperiam delectus amet natus placeat laborum est,
-                    distinctio iure deserunt!</p>
-            </div>
-            <a href="single_blog.html">read More</a>
-        </div>
-        <div class="blog__container">
-            <div class="image">
-                <img src="./images/mine/blogs/image3.png" alt="blog Image">
-            </div>
-            <h4>blog Title</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis libero vitae harum! Voluptatem,
-                quod voluptates quaerat iste fuga voluptate minus aperiam delectus amet natus placeat laborum est,
-                distinctio iure deserunt!</p>
 
-            <a href="single_blog.html">read More</a>
-        </div> -->
     </section>
     <!-- Contact section -->
+
     <section class="contact" id="contact">
+        <div class="popup__message">
+        </div>
         <h2>Book A call</h2>
 
         <div class="contact__container">
@@ -241,12 +207,12 @@
                 <form action="#" id="contactForm">
                     <div>
                         <label for="fullName">Full Name</label>
-                        <input type="text" placeholder="Your full Name" id="fullName">
+                        <input type="text" name="fullName" placeholder="Your full Name" id="fullName">
                     </div>
                     <div>
                         <label for="email">Email</label>
 
-                        <input type="text" placeholder="Your Email" id="email">
+                        <input type="text" name="email" placeholder="Your Email" id="email">
                     </div>
                     <div>
                         <label for="interest">Your interest</label>
@@ -277,9 +243,10 @@
     </footer>
     <script src="./js/navbar.js"></script>
     <script src="./js/slider.js"></script>
-    <script src="./js/formValidation.js"></script>
+    <!-- <script src="./js/formValidation.js"></script> -->
     <script src="./scripts/displayBlogs.js"></script>
-    <script src="./js/handleMessages.js"></script>
+    <!-- <script src="./js/handleMessages.js"></script> -->
+    <script type="module" src="./scripts/handleMessages.js"></script>
 
     <script>
 

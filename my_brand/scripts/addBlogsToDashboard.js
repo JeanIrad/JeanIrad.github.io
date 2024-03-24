@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const loader = document.querySelector(".loader_container");
   const popupMessage = document.querySelector(".popup__message");
   const blogNum = document.getElementById("blogNum");
+  const token = JSON.parse(localStorage.getItem("token"));
   async function fetchData(data) {
     try {
       blogsContainer.innerHTML =
@@ -15,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       if (blogResponse.ok) {
         const { data, size } = await blogResponse.json();
-        console.log(size);
-        blogNum.textContent = size;
+        size === 0
+          ? (blogNum.textContent = "No blog")
+          : (blogNum.textContent = size);
         data.length <= 0
           ? (blogsContainer.innerHTML =
               "<h2>Please create Blog to view the list</h2>")
@@ -26,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
           blog_container.classList.add("blog");
           blog_container.innerHTML = `
           <span>0${index + 1}</span> <span>${
-            blog.title
+            blog.title.length < 30
+              ? blog.title
+              : blog.title.slice(0, 30) + "..."
           }</span> <a href="update_blog.html?id=${
             blog._id
           }"><span role="button" id="editIcon" data-id="${blog._id}"><i
@@ -38,29 +42,33 @@ document.addEventListener("DOMContentLoaded", function () {
           deleteBlog();
         });
       }
-      // const { data, size } = await blogResponse.json();
-      // console.log(size);
-      // blogNum.textContent = size;
-      // data.length <= 0
-      //   ? (blogsContainer.innerHTML =
-      //       "<h2>Please create Blog to view the list</h2>")
-      //   : (blogsContainer.innerHTML = "");
-      // data.forEach((blog, index) => {
-      //   const blog_container = document.createElement("div");
-      //   blog_container.classList.add("blog");
-      //   blog_container.innerHTML = `
-      //     <span>0${index + 1}</span> <span>${
-      //     blog.title
-      //   }</span> <a href="update_blog.html?id=${
-      //     blog._id
-      //   }"><span role="button" id="editIcon" data-id="${blog._id}"><i
-      //     class="fa-solid fa-pen"></i></span></a><span role="button" id="deleteIcon" data-id="${
-      //       blog._id
-      //     }"><i
-      //     class="fa-solid fa-trash"></i></span>`;
-      //   blogsContainer.appendChild(blog_container);
-      //   deleteBlog();
-      // });
+      // implementing the stats update and avoid code duplication
+      const updateStats = async (path, element) => {
+        const response = await fetch(
+          `https://jadoiradukunda.onrender.com/api/${path}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (response.ok) {
+          const { size } = await response.json();
+          size === 0
+            ? (element.textContent = `No ${path}`)
+            : (element.textContent = size);
+        }
+      };
+      // fetching users
+      updateStats("users", document.getElementById("userNum"));
+      // fetching messages
+      updateStats("messages", document.getElementById("messageNum"));
+      // fetching comments
+      updateStats("comments", document.getElementById("commentNum"));
+
+      // fetching portfolio
+      updateStats("portfolio", document.getElementById("portfolioNum"));
     } catch (err) {
       console.log("error fetching blogs", err);
       throw err;
