@@ -56,9 +56,24 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     console.log(newMessage);
     const response = await MessageService.sendMessage(newMessage);
-    console.log(response.ok);
     const result = await response.json();
+    if (response.status === 201) {
+      popupMessage.textContent =
+        "Thank you for contacting us, we'll reach out to you soon!";
+      popupMessage.style.color = "green";
+      popupMessage.classList.add("show__popup");
+      setTimeout(() => {
+        popupMessage.classList.remove("show__popup");
+      }, 2000);
+      messageForm.reset();
+    } else {
+      popupMessage.textContent = "error sending a message, please try again!";
+      popupMessage.style.color = "brown";
+      popupMessage.classList.add("show__popup");
+      setTimeout(() => {
+        popupMessage.classList.remove("show__popup");
+      }, 2000);
+    }
     console.log(result);
-    // messageForm.reset();
   });
 });
