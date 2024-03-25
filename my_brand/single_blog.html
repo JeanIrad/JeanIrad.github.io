@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="./css/nav.styles.css">
     <link rel="stylesheet" href="./css/footer_styles.css">
     <link rel="stylesheet" href="./css/loader.css">
+    <!-- CDN for React and React-DOM-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Import Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         #blog__content {
             margin-top: 4rem;
@@ -46,7 +51,9 @@
 
 
                 <div class="blog__features">
-                    <span>14<i class="fa-solid fa-heart"></i></span>
+                    <div id="likes">
+
+                    </div>
                     <div class="author">
                         <span id="author">✒️ </span>
                         <span id="createdAt">⌚ </span>
@@ -81,6 +88,7 @@
 
         </div>
     </div>
+    <div id="root"></div>
     <footer id="footer" class="footer">
 
         <p>&copy; 2024 Rights reserved by <span id="logo">
@@ -93,6 +101,7 @@
     <script src="./scripts/handleComments.js"></script>
     <script src="./scripts/checkLogin.js"></script>
     <script src="./scripts/singleBlog.js"></script>
+    <script src="./scripts/handleLikes.js" type="text/babel"></script>
 </body>
 
 </html>

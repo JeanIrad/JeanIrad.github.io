@@ -1,3 +1,6 @@
+img {
+  object-fit: cover;
+}
 .blog__features {
   display: flex;
   justify-content: space-between;
@@ -14,4 +17,22 @@ textarea {
   height: 3.5rem;
   padding: 1rem;
   outline: none;
+}
+#likes p {
+  font-size: 0.8rem;
+}
+.likes_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+#likeBtn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #0e47bb;
+  font-size: 0.8rem;
 }
