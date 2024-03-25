@@ -60,7 +60,7 @@ signupForm.onsubmit = async function (submitEvent) {
       popupMessage.style.color = "green";
       if (!isAdmin) {
         setTimeout(function () {
-          return window.location.assign("userDashboard.html");
+          return (window.location.href = "userDashboard.html?login=true");
         }, 1400);
       }
       setTimeout(function () {
