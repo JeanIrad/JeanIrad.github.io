@@ -59,10 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           popupMessage.classList.remove("show__popup");
         }, 1500);
-        popupMessage.textContent = message;
+        popupMessage.textContent = message + " please verify your email";
         popupMessage.classList.add("show__popup");
         loader.style.display = "none";
         popupMessage.style.color = "green";
+        signupForm.reset();
       } else {
         (popupMessage.textContent = message || "error"),
           (popupMessage.style.color = "brown"),
@@ -75,13 +76,5 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (err) {
       console.log(err);
     }
-    // setTimeout(() => {
-    //   console.log("executing after 2 secs");
-
-    //   console.log("popup class captured");
-    //   popupMessage.classList.remove("show__popup");
-    //   // popupMessage.className = "";
-    //   console.log(popupMessage.className);
-    // }, 2000);
   };
 });
