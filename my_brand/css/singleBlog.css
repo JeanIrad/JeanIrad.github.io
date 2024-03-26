@@ -36,3 +36,20 @@ textarea {
   color: #0e47bb;
   font-size: 0.8rem;
 }
+.comment__container1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0d5175;
+  padding: 2rem 1rem;
+  width: 80%;
+}
+.comment__card {
+  padding: 1rem;
+  border: 1px solid #0d5175;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
