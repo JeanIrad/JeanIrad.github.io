@@ -165,8 +165,24 @@ h2 {
   gap: 1rem;
   width: 100%;
 }
-.portfolio .image__text__container .image__container {
+.portfolio .image__text__container .portfolio__item {
   flex: 1;
+  display: none;
+}
+.portfolio .image__text__container .portfolio__item.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid #000c24;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px #7b7d7d;
+  background: #dfe5e4;
+  width: 100%;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
 }
 .portfolio .image__text__container .text__container {
   display: flex;
@@ -181,25 +197,25 @@ h2 {
 .portfolio .image__text__container .text__container button {
   margin-top: 4rem;
 }
-.portfolio .image__text__container .image__container img {
+.portfolio .image__text__container .portfolio__item img {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
   object-fit: cover;
 }
-.slider {
+.portfolio__slider {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin: 1rem auto;
 }
-.slider div {
+.portfolio__slider div {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
   background: #999;
 }
-.slider div:first-child {
+.portfolio__slider .active {
   background: #cfa511;
 }
 /* blogs */
